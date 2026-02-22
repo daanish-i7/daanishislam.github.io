@@ -22,7 +22,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -32,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* GRID BACKGROUND */
     body::before {
       content: '';
       position: fixed;
@@ -45,23 +43,18 @@
       z-index: 0;
     }
 
-    /* SCANLINE OVERLAY */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
       background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.08) 2px,
-        rgba(0,0,0,0.08) 4px
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
       );
       pointer-events: none;
       z-index: 0;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -75,568 +68,107 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      text-decoration: none;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .nav-logo { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 0 3rem;
-      z-index: 1;
-    }
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 3rem; z-index: 1; }
+    .hero-content { max-width: 800px; }
 
-    .hero-content {
-      max-width: 800px;
-    }
+    .hero-tag { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.6s ease both; }
+    .hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
 
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      animation: fadeUp 0.6s ease both;
-    }
+    .hero-name { font-family: var(--display); font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: 0.95; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 1rem; animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-name span { color: transparent; -webkit-text-stroke: 1px var(--accent); }
 
-    .hero-tag::before {
-      content: '';
-      width: 30px; height: 1px;
-      background: var(--accent);
-    }
-
-    .hero-name {
-      font-family: var(--display);
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 800;
-      line-height: 0.95;
-      color: var(--text-bright);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-
-    .hero-name span {
-      color: transparent;
-      -webkit-text-stroke: 1px var(--accent);
-    }
-
-    .hero-title {
-      font-family: var(--mono);
-      font-size: 1rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-
+    .hero-title { font-family: var(--mono); font-size: 1rem; color: var(--text-dim); margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both; }
     .hero-title .highlight { color: var(--accent2); }
 
-    .hero-desc {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-      font-weight: 300;
-    }
+    .hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--text); max-width: 520px; margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.3s ease both; font-weight: 300; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both; }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
+    .btn { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; text-decoration: none; border: 1px solid; transition: all 0.2s; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary:hover { background: transparent; color: var(--accent); }
+    .btn-secondary { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .btn {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      text-decoration: none;
-      border: 1px solid;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* STATS BAR */
-    .stats-bar {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      gap: 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      overflow: hidden;
-    }
-
-    .stat {
-      flex: 1;
-      padding: 2rem 2.5rem;
-      border-right: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
+    .stats-bar { position: relative; z-index: 1; display: flex; gap: 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); overflow: hidden; }
+    .stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid var(--border); position: relative; overflow: hidden; transition: background 0.3s; }
     .stat:last-child { border-right: none; }
     .stat:hover { background: var(--surface); }
+    .stat-num { font-family: var(--display); font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-label { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; }
 
-    .stat-num {
-      font-family: var(--display);
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
+    section { position: relative; z-index: 1; padding: 7rem 3rem; max-width: 1200px; margin: 0 auto; }
 
-    .stat-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
+    .section-num { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; }
+    .section-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--text-bright); letter-spacing: -0.02em; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* SECTIONS */
-    section {
-      position: relative;
-      z-index: 1;
-      padding: 7rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .section-num {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-    }
-
-    .section-title {
-      font-family: var(--display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--text-bright);
-      letter-spacing: -0.02em;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* PROJECT CARDS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .project-card {
-      background: var(--bg2);
-      padding: 3rem;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--accent);
-      transform: scaleY(0);
-      transition: transform 0.3s;
-      transform-origin: top;
-    }
-
+    .project-card { background: var(--bg2); padding: 3rem; transition: background 0.3s; position: relative; overflow: hidden; }
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); transform: scaleY(0); transition: transform 0.3s; transform-origin: top; }
     .project-card:hover::before { transform: scaleY(1); }
     .project-card:hover { background: var(--surface); }
+    .project-card.span-2 { grid-column: span 2; }
 
-    .project-card.span-2 {
-      grid-column: span 2;
-    }
+    .project-tag { font-family: var(--mono); font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .project-tag::before { content: '▶'; font-size: 0.5rem; }
+    .project-title { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.5rem; line-height: 1.2; }
+    .project-sub { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+    .project-desc { font-size: 0.95rem; line-height: 1.8; color: var(--text); font-weight: 300; margin-bottom: 2rem; }
 
-    .project-tag {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--accent2);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+    .project-metrics { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .metric { display: flex; flex-direction: column; gap: 0.25rem; }
+    .metric-val { font-family: var(--display); font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+    .metric-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .project-tag::before {
-      content: '▶';
-      font-size: 0.5rem;
-    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); border: 1px solid var(--border); padding: 0.3rem 0.7rem; letter-spacing: 0.08em; transition: all 0.2s; }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
 
-    .project-title {
-      font-family: var(--display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
+    .media-label { font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: #4a5568; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem; }
 
-    .project-sub {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      margin-bottom: 1.5rem;
-    }
-
-    .project-desc {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--text);
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-    .project-metrics {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .metric {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .metric-val {
-      font-family: var(--display);
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .metric-label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.3rem 0.7rem;
-      letter-spacing: 0.08em;
-      transition: all 0.2s;
-    }
-
-    .tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .skill-group {
-      background: var(--bg2);
-      padding: 2.5rem;
-      transition: background 0.3s;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+    .skill-group { background: var(--bg2); padding: 2.5rem; transition: background 0.3s; }
     .skill-group:hover { background: var(--surface); }
+    .skill-group-title { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .skill-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .skill-item { font-size: 0.88rem; color: var(--text); font-weight: 300; display: flex; align-items: center; gap: 0.6rem; }
+    .skill-item::before { content: ''; width: 4px; height: 4px; background: var(--accent2); flex-shrink: 0; }
 
-    .skill-group-title {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .skill-item {
-      font-size: 0.88rem;
-      color: var(--text);
-      font-weight: 300;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .skill-item::before {
-      content: '';
-      width: 4px; height: 4px;
-      background: var(--accent2);
-      flex-shrink: 0;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .about-text {
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--text);
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
-
-    .edu-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 2rem 2.5rem;
-      margin-bottom: 1px;
-      transition: background 0.3s;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+    .about-label { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; }
+    .about-text { font-size: 1rem; line-height: 1.9; color: var(--text); font-weight: 300; margin-bottom: 1.5rem; }
+    .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 2rem 2.5rem; margin-bottom: 1px; transition: background 0.3s; }
     .edu-card:hover { background: var(--surface); }
+    .edu-school { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.25rem; }
+    .edu-degree { font-size: 0.9rem; color: var(--text); font-weight: 300; margin-bottom: 0.5rem; }
+    .edu-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.08em; }
+    .gpa-badge { display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); font-family: var(--mono); font-size: 0.72rem; padding: 0.25rem 0.65rem; margin-left: 0.75rem; }
 
-    .edu-school {
-      font-family: var(--display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      margin-bottom: 0.25rem;
-    }
+    .contact-wrapper { background: var(--bg2); border: 1px solid var(--border); padding: 4rem; position: relative; overflow: hidden; }
+    .contact-wrapper::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%); pointer-events: none; }
+    .contact-title { font-family: var(--display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .contact-sub { color: var(--text-dim); margin-bottom: 3rem; font-family: var(--mono); font-size: 0.85rem; }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-link { display: flex; align-items: center; gap: 0.65rem; font-family: var(--mono); font-size: 0.8rem; color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 0.85rem 1.5rem; letter-spacing: 0.08em; transition: all 0.2s; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
 
-    .edu-degree {
-      font-size: 0.9rem;
-      color: var(--text);
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-    }
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-text { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.08em; }
 
-    .edu-meta {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    .gpa-badge {
-      display: inline-block;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      padding: 0.25rem 0.65rem;
-      margin-left: 0.75rem;
-    }
+    .cursor { display: inline-block; width: 8px; height: 1.1em; background: var(--accent); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* CONTACT */
-    .contact-wrapper {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -50%; right: -20%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .contact-title {
-      font-family: var(--display);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      color: var(--text-bright);
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .contact-sub {
-      font-size: 1rem;
-      color: var(--text-dim);
-      font-weight: 300;
-      margin-bottom: 3rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--text);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 0.85rem 1.5rem;
-      letter-spacing: 0.08em;
-      transition: all 0.2s;
-    }
-
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* FOOTER */
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-text {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* CURSOR DOT */
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 1.1em;
-      background: var(--accent);
-      margin-left: 4px;
-      animation: blink 1s step-end infinite;
-      vertical-align: text-bottom;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -686,22 +218,10 @@
 
   <!-- STATS BAR -->
   <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">3.62</div>
-      <div class="stat-label">GPA · Dean's List</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">~12%</div>
-      <div class="stat-label">Coating Cycle Time Reduction</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">21%</div>
-      <div class="stat-label">Downtime Reduction</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">220+</div>
-      <div class="stat-label">Students Tutored</div>
-    </div>
+    <div class="stat"><div class="stat-num">3.62</div><div class="stat-label">GPA · Dean's List</div></div>
+    <div class="stat"><div class="stat-num">~12%</div><div class="stat-label">Coating Cycle Time Reduction</div></div>
+    <div class="stat"><div class="stat-num">21%</div><div class="stat-label">Downtime Reduction</div></div>
+    <div class="stat"><div class="stat-num">220+</div><div class="stat-label">Students Tutored</div></div>
   </div>
 
   <!-- ABOUT -->
@@ -714,35 +234,24 @@
     <div class="about-grid reveal">
       <div>
         <div class="about-label">Background</div>
-        <p class="about-text">
-          Senior Mechanical Engineering student at Georgia Tech concentrating in Automation and Robotics, graduating May 2026. My work sits at the intersection of mechanical design, manufacturing, and automation — turning ideas in SolidWorks into systems that perform under real industrial conditions.
-        </p>
-        <p class="about-text">
-          I've designed and fabricated components deployed in active manufacturing lines, programmed industrial robots for thermal spray coating, and conducted hands-on metallurgical testing. I care about the full cycle: design, validate, build, test, iterate.
-        </p>
-        <a href="mailto:dislam7@gatech.edu" class="btn btn-secondary" style="display:inline-block;margin-top:0.5rem;">Download Resume →</a>
+        <p class="about-text">Senior Mechanical Engineering student at Georgia Tech concentrating in Automation and Robotics, graduating May 2026. My work sits at the intersection of mechanical design, manufacturing, and automation — turning ideas in SolidWorks into systems that perform under real industrial conditions.</p>
+        <p class="about-text">I've designed and fabricated components deployed in active manufacturing lines, programmed industrial robots for thermal spray coating, and conducted hands-on metallurgical testing. I care about the full cycle: design, validate, build, test, iterate.</p>
+        <a href="Daanish_Islam_Resume.pdf" class="btn btn-secondary" style="display:inline-block;margin-top:0.5rem;">Download Resume →</a>
       </div>
       <div>
         <div class="about-label" style="margin-bottom:1rem;">Education</div>
         <div class="edu-card">
           <div class="edu-school">Georgia Institute of Technology</div>
           <div class="edu-degree">B.S. Mechanical Engineering · Automation &amp; Robotics</div>
-          <div class="edu-meta">
-            Aug 2022 – May 2026 &nbsp;·&nbsp; Atlanta, GA
-            <span class="gpa-badge">GPA 3.62</span>
-          </div>
+          <div class="edu-meta">Aug 2022 – May 2026 &nbsp;·&nbsp; Atlanta, GA <span class="gpa-badge">GPA 3.62</span></div>
         </div>
         <div style="margin-top:1.5rem;">
           <div class="about-label">Relevant Coursework</div>
           <div class="project-tags" style="margin-top:0.75rem;">
-            <span class="tag">Machine Design</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Fluid Mechanics</span>
-            <span class="tag">Thermodynamics</span>
-            <span class="tag">Heat Transfer</span>
-            <span class="tag">System Dynamics</span>
-            <span class="tag">FEA/CAE</span>
-            <span class="tag">Material Science</span>
+            <span class="tag">Machine Design</span><span class="tag">Robotics</span>
+            <span class="tag">Fluid Mechanics</span><span class="tag">Thermodynamics</span>
+            <span class="tag">Heat Transfer</span><span class="tag">System Dynamics</span>
+            <span class="tag">FEA/CAE</span><span class="tag">Material Science</span>
           </div>
         </div>
       </div>
@@ -761,94 +270,77 @@
 
     <div class="projects-grid reveal" style="max-width:1200px;margin:0 auto;border-left:1px solid var(--border);border-right:1px solid var(--border);">
 
-      <!-- Redwood Materials -->
-<div class="project-card span-2">
-  <div class="project-tag">Mechanical Engineering Intern · May–Aug 2025</div>
-  <div class="project-title">Bed Sensor Flange Mount & FANUC Robot Programming</div>
-  <div class="project-sub">Redwood Materials · Reno, NV · RK Coating Team</div>
-  <p class="project-desc">
-    Designed and assembled a custom fixture to spin a bed sensor flange for a thermal spray coating operation. Engineered around real constraints — targeting up to 250 RPM while staying within motor torque limits — selecting 11-gauge mild steel for the rotating section and 2×2 square steel tubing for the fixed stand. Built in tab-and-slot features to simplify welding and assembly, and ran RPM and robot speed calculations across different flange diameters to dial in process parameters.
-  </p>
+      <!-- ═══ REDWOOD MATERIALS ═══ -->
+      <div class="project-card span-2">
+        <div class="project-tag">Mechanical Engineering Intern · May–Aug 2025</div>
+        <div class="project-title">Bed Sensor Flange Mount & FANUC Robot Programming</div>
+        <div class="project-sub">Redwood Materials · Reno, NV · RK Coating Team</div>
+        <p class="project-desc">
+          Designed and assembled a custom fixture to spin a bed sensor flange for a thermal spray coating operation. Engineered around real constraints — targeting up to 250 RPM while staying within motor torque limits — selecting 11-gauge mild steel for the rotating section and 2×2 square steel tubing for the fixed stand. Built in tab-and-slot features to simplify welding and assembly, and ran RPM and robot speed calculations across different flange diameters to dial in process parameters.
+        </p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-    <div>
-      <img src="assembly.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture Assembly" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">SolidWorks Assembly — Bed Sensor Mount</div>
-    </div>
-    <div>
-      <img src="assembly-drawing.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">2D Assembly Drawing — BOM & Exploded View</div>
-    </div>
-  </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div>
+            <img src="assembly.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture Assembly" />
+            <div class="media-label">SolidWorks Assembly — Bed Sensor Mount</div>
+          </div>
+          <div>
+            <img src="assembly-drawing.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
+            <div class="media-label">2D Assembly Drawing — BOM & Exploded View</div>
+          </div>
+        </div>
 
-  <p class="project-desc">
-    Programmed a FANUC robot via teach pendant to coat both the top surface and inner diameter of the flange, and used FANUC ROBOGUIDE to simulate and validate spray paths. Supported coating quality verification to confirm thickness met target — final coating landed in the 240–320 micron range. Part of a broader HVOF thermal spray operation that improved coating cycle time by ~12%.
-  </p>
+        <p class="project-desc">
+          Programmed a FANUC robot via teach pendant to coat both the top surface and inner diameter of the flange, and used FANUC ROBOGUIDE to simulate and validate spray paths. Supported coating quality verification to confirm thickness met target — final coating landed in the 240–320 micron range. Part of a broader HVOF thermal spray operation that improved coating cycle time by ~12%.
+        </p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-    <div>
-      <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/eI6Ww2LsbVc" frameborder="0" allowfullscreen></iframe>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div>
+            <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
+              <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/eI6Ww2LsbVc" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="media-label">FANUC Robot — Coating Plate</div>
+          </div>
+          <div>
+            <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
+              <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/OQbHTClUJ6A" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="media-label">FANUC Robot — Coating Flange</div>
+          </div>
+        </div>
+
+        <div>
+          <img src="Coated-flange.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Coated Flange" />
+          <div class="media-label" style="margin-bottom:2rem;">Coated Flange — 240–320μm Thickness</div>
+        </div>
+
+        <p class="project-desc">
+          Conducted metallurgy-based testing to verify coating quality — including microhardness, surface roughness, tensile, and adhesion tests — confirming coating thickness in the 200–400 micron range and proper material hardness. Streamlined the testing workflow, cutting total process time from 9 to 7 hours.
+        </p>
+
+        <div>
+          <img src="metallurgy.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Metallurgy Testing" />
+          <div class="media-label" style="margin-bottom:2rem;">Metallurgy Testing — Hardness & Roughness Verification</div>
+        </div>
+
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">~12%</div><div class="metric-label">Cycle Time Reduction</div></div>
+          <div class="metric"><div class="metric-val">250 RPM</div><div class="metric-label">Max Fixture Speed</div></div>
+          <div class="metric"><div class="metric-val">240–320μm</div><div class="metric-label">Coating Thickness</div></div>
+          <div class="metric"><div class="metric-val">2 hrs</div><div class="metric-label">Testing Time Saved</div></div>
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span><span class="tag">FANUC Robot</span>
+          <span class="tag">Teach Pendant</span><span class="tag">ROBOGUIDE</span>
+          <span class="tag">HVOF Coating</span><span class="tag">11-Gauge Mild Steel</span>
+          <span class="tag">Tab-and-Slot Welding</span><span class="tag">GD&T</span>
+          <span class="tag">Microhardness Testing</span><span class="tag">Surface Roughness</span>
+          <span class="tag">Tensile & Adhesion Testing</span><span class="tag">Metallurgy</span>
+        </div>
       </div>
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">FANUC Robot — Coating Plate</div>
-    </div>
-    <div>
-      <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/OQbHTClUJ6A" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">FANUC Robot — Coating Flange</div>
-    </div>
-  </div>
 
-  <div>
-    <img src="Coated-flange.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Coated Flange" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Coated Flange — 240–320μm Thickness</div>
-  </div>
-
-  <p class="project-desc">
-    Conducted metallurgy-based testing to verify coating quality — including microhardness, surface roughness, tensile, and adhesion tests — confirming coating thickness in the 200–400 micron range and proper material hardness. Streamlined the testing workflow, cutting total process time from 9 to 7 hours.
-  </p>
-
- <div>
-    <img src="metallurgy.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Metallurgy Testing" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Metallurgy Testing — Hardness & Roughness Verification</div>
-  </div>
-  <div class="project-metrics">
-    <div class="metric">
-      <div class="metric-val">~12%</div>
-      <div class="metric-label">Cycle Time Reduction</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">250 RPM</div>
-      <div class="metric-label">Max Fixture Speed</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">240–320μm</div>
-      <div class="metric-label">Coating Thickness</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">2 hrs</div>
-      <div class="metric-label">Testing Time Saved</div>
-    </div>
-  </div>
-
-  <div class="project-tags">
-    <span class="tag">SolidWorks</span>
-    <span class="tag">FANUC Robot</span>
-    <span class="tag">Teach Pendant</span>
-    <span class="tag">ROBOGUIDE</span>
-    <span class="tag">HVOF Coating</span>
-    <span class="tag">11-Gauge Mild Steel</span>
-    <span class="tag">Tab-and-Slot Welding</span>
-    <span class="tag">GD&T</span>
-    <span class="tag">Microhardness Testing</span>
-    <span class="tag">Surface Roughness</span>
-    <span class="tag">Tensile & Adhesion Testing</span>
-    <span class="tag">Metallurgy</span>
-  </div>
-</div>
-
-      <!-- Bangladesh Steel -->
+      <!-- ═══ BANGLADESH STEEL ═══ -->
       <div class="project-card span-2">
         <div class="project-tag">Manufacturing Engineering Intern · May–Jul 2024</div>
         <div class="project-title">Bangladesh Steel Re-Rolling Mills</div>
@@ -857,173 +349,137 @@
           Led root cause analysis on recurring failures across hydraulic, pneumatic, and cooling systems — identifying valve wear and pressure inconsistencies across the production line. Designed and fabricated replacement valves, jigs, and lifting fixtures in SolidWorks; used CFD analysis to optimize flow performance and maintenance accessibility. Tracked procurement and material flow under ISO 9001 procedures, identifying bottlenecks in vendor coordination that directly reduced equipment replacement lead times.
         </p>
         <div class="project-metrics">
-          <div class="metric">
-            <div class="metric-val">21%</div>
-            <div class="metric-label">Unplanned Downtime Reduction</div>
-          </div>
-          <div class="metric">
-            <div class="metric-val">3–5 days</div>
-            <div class="metric-label">Lead Time Reduced</div>
-          </div>
+          <div class="metric"><div class="metric-val">21%</div><div class="metric-label">Unplanned Downtime Reduction</div></div>
+          <div class="metric"><div class="metric-val">3–5 days</div><div class="metric-label">Lead Time Reduced</div></div>
         </div>
         <div class="project-tags">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">CFD Analysis</span>
-          <span class="tag">Hydraulic Systems</span>
-          <span class="tag">Pneumatic Systems</span>
-          <span class="tag">Root Cause Analysis</span>
-          <span class="tag">ISO 9001</span>
+          <span class="tag">SolidWorks</span><span class="tag">CFD Analysis</span>
+          <span class="tag">Hydraulic Systems</span><span class="tag">Pneumatic Systems</span>
+          <span class="tag">Root Cause Analysis</span><span class="tag">ISO 9001</span>
           <span class="tag">Fabrication</span>
         </div>
       </div>
 
-    <!-- Water Energy Research Lab -->
-    <div class="project-card span-2">
-  <div class="project-tag">Research Assistant · Jan–Apr 2025</div>
-  <div class="project-title">LCST Desalination Loop — Mass Exchanger Design</div>
-  <div class="project-sub">Water–Energy Research Lab · Georgia Tech · Atlanta, GA</div>
-  <p class="project-desc">
-    Designed and 3D printed mass exchanger components for a Single Stage LCST (Lower Critical Solution Temperature) desalination loop — a thermally-driven process that separates water from brine using a polymer solution that phase-shifts at a critical temperature. The system cycles brine through warm solution (WS) and water recovery (WR) stages, with air pumps driving humid air across mass exchanger beds while humidity (RH), temperature (T), and flow (F) sensors monitor conditions at each node.
-  </p>
+      <!-- ═══ WATER ENERGY RESEARCH LAB ═══ -->
+      <div class="project-card span-2">
+        <div class="project-tag">Research Assistant · Jan–Apr 2025</div>
+        <div class="project-title">LCST Desalination Loop — Mass Exchanger Design</div>
+        <div class="project-sub">Water–Energy Research Lab · Georgia Tech · Atlanta, GA</div>
+        <p class="project-desc">
+          Designed and 3D printed mass exchanger components for a Single Stage LCST (Lower Critical Solution Temperature) desalination loop — a thermally-driven process that separates water from brine using a polymer solution that phase-shifts at a critical temperature. The system cycles brine through warm solution (WS) and water recovery (WR) stages, with air pumps driving humid air across mass exchanger beds while humidity (RH), temperature (T), and flow (F) sensors monitor conditions at each node.
+        </p>
 
-  <div>
-    <img src="Process-diagram.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="LCST Process Diagram" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Single Stage LCST Process Diagram — Water–Energy Research Lab, Georgia Tech</div>
-  </div>
+        <div>
+          <img src="Process-diagram.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="LCST Process Diagram" />
+          <div class="media-label" style="margin-bottom:2rem;">Single Stage LCST Process Diagram — Water–Energy Research Lab, Georgia Tech</div>
+        </div>
 
-  <p class="project-desc">
-    Using SolidWorks, designed detailed CAD models of the mass exchanger components and integrated mounting features for humidity and pressure sensors, control valves, a motor, and a water pump. All components were 3D printed in-house and assembled into a functional test loop. Used Sensirion sensors for real-time humidity and temperature data acquisition and analysis throughout testing.
-  </p>
+        <p class="project-desc">
+          Using SolidWorks, designed detailed CAD models of the mass exchanger components and integrated mounting features for humidity and pressure sensors, control valves, a motor, and a water pump. All components were 3D printed in-house and assembled into a functional test loop. Used Sensirion sensors for real-time humidity and temperature data acquisition and analysis throughout testing.
+        </p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-    <div>
-      <img src="Fixture-CAD.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture CAD" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">SolidWorks CAD — Mass Exchanger Components</div>
-    </div>
-    <div>
-      <img src="Physical-setup.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Physical Setup" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Physical Test Setup — Assembled Loop</div>
-    </div>
-  </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div>
+            <img src="Fixture-CAD.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture CAD" />
+            <div class="media-label">SolidWorks CAD — Mass Exchanger Components</div>
+          </div>
+          <div>
+            <img src="Physical-setup.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Physical Setup" />
+            <div class="media-label">Physical Test Setup — Assembled Loop</div>
+          </div>
+        </div>
 
-  <p class="project-desc">
-    Built and tested multiple configurations of the mass exchanger to evaluate desalination performance, mass exchange efficiency, and leakage control under varying conditions. Each configuration informed design iterations — adjusting geometry, seal interfaces, and flow paths — to progressively improve system performance.
-  </p>
+        <p class="project-desc">
+          Built and tested multiple configurations of the mass exchanger to evaluate desalination performance, mass exchange efficiency, and leakage control under varying conditions. Each configuration informed design iterations — adjusting geometry, seal interfaces, and flow paths — to progressively improve system performance.
+        </p>
 
-  <div style="display:flex;justify-content:center;margin-bottom:2rem;">
-    <div style="width:25%;">
-      <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-        <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/hdqdSR90lYM" frameborder="0" allowfullscreen></iframe>
+        <div style="display:flex;justify-content:center;margin-bottom:2rem;">
+          <div style="width:25%;">
+            <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
+              <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/hdqdSR90lYM" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="media-label">Live System — Flow Test</div>
+          </div>
+        </div>
+
+        <p class="project-desc">
+          The final configuration achieved a relative humidity increase from 25.7% to 96.7%, validating the mass exchanger's ability to drive effective moisture transfer across the loop.
+        </p>
+
+        <div>
+          <img src="RH-result.jpg" style="width:100%;height:480px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="RH Result" />
+          <div class="media-label" style="margin-bottom:2rem;">Relative Humidity Result — 25.7% to 96.7%</div>
+        </div>
+
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">25.7%</div><div class="metric-label">Initial Relative Humidity</div></div>
+          <div class="metric"><div class="metric-val">96.7%</div><div class="metric-label">Final Relative Humidity</div></div>
+          <div class="metric"><div class="metric-val">+71%</div><div class="metric-label">RH Increase Achieved</div></div>
+          <div class="metric"><div class="metric-val">2+</div><div class="metric-label">Configurations Tested</div></div>
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span><span class="tag">3D Printing</span>
+          <span class="tag">LCST Desalination</span><span class="tag">Mass Exchanger Design</span>
+          <span class="tag">Sensirion Sensors</span><span class="tag">Humidity Sensing</span>
+          <span class="tag">Pressure Sensors</span><span class="tag">Data Analysis</span>
+          <span class="tag">Iterative Design</span>
+        </div>
       </div>
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Live System — Flow Test</div>
-    </div>
-  </div>
 
-  <p class="project-desc">
-    The final configuration achieved a relative humidity increase from 25.7% to 96.7%, validating the mass exchanger's ability to drive effective moisture transfer across the loop.
-  </p>
+      <!-- ═══ DRUG DELIVERY DRONE ═══ -->
+      <div class="project-card span-2">
+        <div class="project-tag">CAD Design Project · 2022</div>
+        <div class="project-title">Drug Delivery Drone — Concept & System Design</div>
+        <div class="project-sub">Georgia Institute of Technology · Atlanta, GA</div>
+        <p class="project-desc">
+          Developed a full concept and system design for a real-world application: an autonomous drug delivery drone. The design objective was to produce a complete, manufacturable assembly within a fixed timeline — from individual components through to a final integrated model.
+          <br /><br />
+          The drone follows a symmetric X-frame layout with four arms extending from a central hub. Each arm terminates in a propeller guard — modeled using swept and lofted features in SolidWorks to produce the curved guard geometry. The propellers themselves were modeled as separate sub-assemblies with individual blade geometry defined using surface modeling tools.
+          <br /><br />
+          The central body houses a dedicated electronics bay with rectangular cutouts for battery and control board mounting, modeled using extruded cuts and shell features to minimize weight while maintaining structural integrity. A payload compartment hangs below the main frame, designed to securely carry a medical package — built using SolidWorks weldments and sheet metal features. Landing gear legs extend from the lower frame, modeled as structural members with filleted joints.
+          <br /><br />
+          All parts were designed individually and brought together using SolidWorks assembly mates — coincident, concentric, and distance mates — to fully constrain the model. Creo was used for advanced modeling and final presentation visuals.
+        </p>
 
-  <div>
-    <img src="RH-result.jpg" style="width:100%;height:480px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="RH Result" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Relative Humidity Result — 25.7% to 96.7%</div>
-  </div>
+        <div>
+          <img src="Drone-full.jpg" style="width:100%;height:460px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Drone Full Assembly" />
+          <div class="media-label" style="margin-bottom:2rem;">Full Assembly — Drug Delivery Drone</div>
+        </div>
 
-  <div class="project-metrics">
-    <div class="metric">
-      <div class="metric-val">25.7%</div>
-      <div class="metric-label">Initial Relative Humidity</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">96.7%</div>
-      <div class="metric-label">Final Relative Humidity</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">+71%</div>
-      <div class="metric-label">RH Increase Achieved</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">2+</div>
-      <div class="metric-label">Configurations Tested</div>
-    </div>
-  </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+          <div>
+            <img src="Assembly-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
+            <div class="media-label">Assembly Drawing</div>
+          </div>
+          <div>
+            <img src="Body-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Body Drawing" />
+            <div class="media-label">Body Drawing</div>
+          </div>
+        </div>
 
-  <div class="project-tags">
-    <span class="tag">SolidWorks</span>
-    <span class="tag">3D Printing</span>
-    <span class="tag">LCST Desalination</span>
-    <span class="tag">Mass Exchanger Design</span>
-    <span class="tag">Sensirion Sensors</span>
-    <span class="tag">Humidity Sensing</span>
-    <span class="tag">Pressure Sensors</span>
-    <span class="tag">Data Analysis</span>
-    <span class="tag">Iterative Design</span>
-  </div>
-</div> 
+        <div>
+          <img src="Propeller-motor-assembly.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Propeller Motor Assembly" />
+          <div class="media-label" style="margin-bottom:2rem;">Propeller & Motor Assembly Detail</div>
+        </div>
 
-<!-- Drug Delivery Drone -->
-<div class="project-card span-2">
-  <div class="project-tag">CAD Design Project · 2022</div>
-  <div class="project-title">Drug Delivery Drone — Concept & System Design</div>
-  <div class="project-sub">Georgia Institute of Technology · Atlanta, GA</div>
-  <p class="project-desc">
-    Developed a full concept and system design for a real-world application: an autonomous drug delivery drone. The design objective was to produce a complete, manufacturable assembly within a fixed timeline — from individual components through to a final integrated model.
-    <br /><br />
-    The drone follows a symmetric X-frame layout with four arms extending from a central hub. Each arm terminates in a propeller guard — modeled using swept and lofted features in SolidWorks to produce the curved guard geometry. The propellers themselves were modeled as separate sub-assemblies with individual blade geometry defined using surface modeling tools.
-    <br /><br />
-    The central body houses a dedicated electronics bay with rectangular cutouts for battery and control board mounting, modeled using extruded cuts and shell features to minimize weight while maintaining structural integrity. A payload compartment hangs below the main frame, designed to securely carry a medical package — the container geometry was built using SolidWorks weldments and sheet metal features to simulate a lightweight enclosure. Landing gear legs extend from the lower frame, modeled as structural members with filleted joints.
-    <br /><br />
-    All parts were designed individually and brought together using SolidWorks assembly mates — coincident, concentric, and distance mates — to fully constrain the model. Creo was used for advanced modeling and final presentation visuals. The completed design was presented in a formal report and received well.
-  </p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">X-Frame</div><div class="metric-label">Drone Architecture</div></div>
+          <div class="metric"><div class="metric-val">Full</div><div class="metric-label">Assembly Constrained</div></div>
+          <div class="metric"><div class="metric-val">Multi</div><div class="metric-label">Sub-Assemblies</div></div>
+        </div>
 
-  <div>
-    <img src="Drone-full.jpg" style="width:100%;height:460px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Drone Full Assembly" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Full Assembly — Drug Delivery Drone</div>
-  </div>
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span><span class="tag">Creo</span>
+          <span class="tag">Loft & Sweep</span><span class="tag">Surface Modeling</span>
+          <span class="tag">Sheet Metal</span><span class="tag">Weldments</span>
+          <span class="tag">Assembly Mates</span><span class="tag">Structural Design</span>
+          <span class="tag">UAV Design</span>
+        </div>
+      </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-    <div>
-      <img src="Assembly-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Assembly Drawing</div>
-    </div>
-    <div>
-      <img src="Body-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Body Drawing" />
-      <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Body Drawing</div>
-    </div>
-  </div>
-
-  <div>
-    <img src="Propeller-motor-assembly.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Propeller Motor Assembly" />
-    <div style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:#4a5568;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;margin-bottom:2rem;">Propeller & Motor Assembly Detail</div>
-  </div>
-
-  <div class="project-metrics">
-    <div class="metric">
-      <div class="metric-val">X-Frame</div>
-      <div class="metric-label">Drone Architecture</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">Full</div>
-      <div class="metric-label">Assembly Constrained</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">Multi</div>
-      <div class="metric-label">Sub-Assemblies</div>
-    </div>
-  </div>
-
-  <div class="project-tags">
-    <span class="tag">SolidWorks</span>
-    <span class="tag">Creo</span>
-    <span class="tag">Loft & Sweep</span>
-    <span class="tag">Surface Modeling</span>
-    <span class="tag">Sheet Metal</span>
-    <span class="tag">Weldments</span>
-    <span class="tag">Assembly Mates</span>
-    <span class="tag">Structural Design</span>
-    <span class="tag">UAV Design</span>
-  </div>
-</div>
-
+    </div><!-- END projects-grid -->
+  </section><!-- END projects section -->
 
   <!-- SKILLS -->
   <section id="skills">
@@ -1080,30 +536,21 @@
       <div class="contact-title">Let's work together<span class="cursor"></span></div>
       <div class="contact-sub">Open to full-time mechanical engineering roles · May 2026</div>
       <div class="contact-links">
-        <a href="mailto:dislam7@gatech.edu" class="contact-link">
-          <span>✉</span> dislam7@gatech.edu
-        </a>
-        <a href="tel:6784625448" class="contact-link">
-          <span>☎</span> 678-462-5448
-        </a>
-        <a href="https://linkedin.com/in/daanishislam" target="_blank" class="contact-link">
-          <span>in</span> linkedin.com/in/daanishislam
-        </a>
-        <a href="https://github.com" target="_blank" class="contact-link">
-          <span>⌥</span> GitHub
-        </a>
+        <a href="mailto:dislam7@gatech.edu" class="contact-link"><span>✉</span> dislam7@gatech.edu</a>
+        <a href="tel:6784625448" class="contact-link"><span>☎</span> 678-462-5448</a>
+        <a href="https://linkedin.com/in/daanishislam" target="_blank" class="contact-link"><span>in</span> linkedin.com/in/daanishislam</a>
+        <a href="https://github.com/daanish-i7" target="_blank" class="contact-link"><span>⌥</span> github.com/daanish-i7</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-text">© 2026 Daanish Islam · daanishislam.github.io</div>
+    <div class="footer-text">© 2026 Daanish Islam · daanishislam.com</div>
     <div class="footer-text">Built with HTML · CSS · Deployed on GitHub Pages</div>
   </footer>
 
   <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1115,7 +562,6 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Typing effect for hero name
     const heroTag = document.querySelector('.hero-tag');
     heroTag.style.opacity = '0';
     setTimeout(() => { heroTag.style.opacity = '1'; heroTag.style.transition = 'opacity 0.5s'; }, 200);

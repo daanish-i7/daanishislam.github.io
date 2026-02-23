@@ -427,6 +427,69 @@
         </div>
       </div>
 
+      <!-- VW Beetle -->
+<div class="project-card span-2">
+  <div class="project-tag">Interactive CAD & CAE · Feb–Mar 2026</div>
+  <div class="project-title">Classic VW Beetle — Surface Modeling in Siemens NX</div>
+  <div class="project-sub">Georgia Institute of Technology · ME 4042 · Atlanta, GA</div>
+  <p class="project-desc">
+    Designed a full 3D model of a classic Volkswagen Beetle in Siemens NX, starting from scratch using spline-based wireframe construction and building up to a complete solid body assembly. The project required generating all geometry from parametric curves — no imported bodies — forcing every surface patch, blend, and transition to be explicitly defined and modifiable.
+    <br /><br />
+    The modeling process began by constructing a 6th-order spline wireframe to define the overall body silhouette, using precisely specified control points to capture the Beetle's iconic organic proportions. Datum planes were used to segment the primary spine curve, and projected curves were created on the X-Y plane to establish the car's base footprint. All curves were then mirrored about the X-Z plane to enforce bilateral symmetry across the full body.
+    <br /><br />
+    Surfaces were generated from the spline network using a combination of N-Sided Surface, Through Curve Mesh, Ruled, and Fill Surface operations. Through Curve Mesh was particularly critical for the roof and hood panels — by defining primary curves and cross curves simultaneously, curvature-continuous (G2) surface patches were achieved across these major body sections. Interior curves were used within the UV orientation settings to control surface shape without introducing additional boundary constraints.
+    <br /><br />
+    Achieving G2 continuity across the hood, roof, and door panels was a core requirement. This was enforced by carefully matching tangent direction and curvature magnitude at all shared edges between adjacent surface patches. Edge Blend operations were applied throughout to eliminate sharp transitions, with individual segment blending used at complex corners where chain blending caused failures. Offset Region was used to thicken surfaces into solid bodies where required.
+    <br /><br />
+    Additional features including bumpers, headlights, door trim lines, window frames, wheel hubs, and axles were modeled to push beyond basic requirements. Fenders were constructed using a combination of extruded profiles and edge blends to match the flowing geometry of the main body. The complete model was assembled as a multi-body solid using SolidWorks Sew operations to close all surface volumes, with surface/curve continuity analysis used to verify G1 and G2 conditions throughout.
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+    <div>
+      <img src="beetle-sketch.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="VW Beetle Blueprint" />
+      <div class="media-label">Engineering Blueprint — VW Beetle Reference Drawing</div>
+    </div>
+    <div>
+      <img src="beetle-model.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="VW Beetle NX Model" />
+      <div class="media-label">Siemens NX Model — Final Rendered Assembly</div>
+    </div>
+  </div>
+
+  <div>
+    <img src="beetle-cad.jpg" style="width:100%;height:460px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="VW Beetle CAD Detail" />
+    <div class="media-label" style="margin-bottom:2rem;">Surface Model Detail — Feature Tree & Geometry</div>
+  </div>
+
+  <div class="project-metrics">
+    <div class="metric">
+      <div class="metric-val">G2</div>
+      <div class="metric-label">Surface Continuity Achieved</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">129+</div>
+      <div class="metric-label">Modeling Operations</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">Full</div>
+      <div class="metric-label">Solid Body Assembly</div>
+    </div>
+  </div>
+
+  <div class="project-tags">
+    <span class="tag">Siemens NX</span>
+    <span class="tag">Surface Modeling</span>
+    <span class="tag">Spline Construction</span>
+    <span class="tag">G2 Continuity</span>
+    <span class="tag">Through Curve Mesh</span>
+    <span class="tag">N-Sided Surface</span>
+    <span class="tag">Edge Blend</span>
+    <span class="tag">Mirror Geometry</span>
+    <span class="tag">Sew & Solid Body</span>
+    <span class="tag">Datum Planes</span>
+    <span class="tag">Fill Surface</span>
+    <span class="tag">Wireframe Modeling</span>
+  </div>
+</div>
       <!-- ═══ DRUG DELIVERY DRONE ═══ -->
       <div class="project-card span-2">
         <div class="project-tag">CAD Design Project · 2022</div>

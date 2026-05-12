@@ -401,6 +401,97 @@
         </div>
       </div> -->
 
+      <!-- ═══ ZIPLINE P2 DROID ═══ -->
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div class="project-header-left">
+            <div class="project-header-tag">Interactive CAD & CAE · Jan–May 2026</div>
+            <div class="project-header-title">Zipline P2 Delivery Droid — Modelling & FEA</div>
+            <div class="project-header-sub">Georgia Institute of Technology · ME 4042 · Atlanta, GA</div>
+          </div>
+          <div class="project-header-right">
+            <div class="project-header-metrics">
+              <div class="project-header-metric">
+                <div class="project-header-metric-val">458x</div>
+                <div class="project-header-metric-label">Safety Factor</div>
+              </div>
+              <div class="project-header-metric">
+                <div class="project-header-metric-val">60</div>
+                <div class="project-header-metric-label">Total Parts</div>
+              </div>
+            </div>
+            <div class="project-arrow">▼</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-body-inner">
+
+            <p class="project-desc">
+              Modelled and analyzed the Zipline P2 delivery droid — the small autonomous sub-vehicle that descends from the main drone to achieve doorstep-level delivery accuracy in urban environments. The droid uses three motors and propellers to counteract wind loads and precisely position itself during descent, and the goal of the project was to accurately replicate its geometry in Siemens NX and perform computational and structural analysis to validate the design against key performance specifications.
+            </p>
+
+            <p class="project-desc">
+              The main body was built from scratch by importing six-sided raster reference images into NX and scaling them to a known bounding box. Bounding curves were generated for half the body and surfaced using Through Curves, Through Curve Meshes, and Studio Surfaces. The resulting half-body sheet was mirrored about the symmetry plane, and all surfaces were sewn into a closed solid. Edge Blend operations were applied along all surface seams to achieve smooth curvature transitions. Following the smooth body creation, Sweep and Extrude subtract operations were used to cut openings for the side propeller assemblies, rear motor bay, light bars, drone feet, front screen, lid, food/medicine compartment, and bay doors — with extruded hinge features added to interface with the lid mechanism.
+            </p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+              <div>
+                <img src="zipline-assembly1.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Zipline Assembly Closed" />
+                <div class="media-label">Full Assembly — Closed Configuration</div>
+              </div>
+              <div>
+                <img src="zipline-assembly2.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Zipline Assembly Open" />
+                <div class="media-label">Full Assembly — Open Lid Configuration</div>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              The main propeller sub-assembly required the highest modeling complexity in the project. Each blade was defined by sketching cross-sectional airfoil profiles on a series of offset datum planes along the blade span, capturing the varying chord width and twist angle at each station. A Through-Curves loft was applied through all cross-sectional sketches to generate a smooth, twisted blade surface. A single blade was then patterned in a five-instance circular array about the hub axis. The hub itself was modeled as a cylindrical boss with a tapered bore to receive the motor shaft, united with a short collar extrusion. The propeller cover — a cage-like annular guard — was modeled as a circular extrude with a concentric cutout, with radial structural bars patterned circumferentially from a central hub ring to the outer rim. The mounting bracket was modeled as an L-shaped extrusion with edge blends at the internal corner to reduce stress concentration, with bolt patterns on both faces for attachment to the main body and motor rear face.
+            </p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
+              <div>
+                <img src="zipline-internal.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Internal Assembly View" />
+                <div class="media-label">Transparent View — Internal Motor & Bay Door Mechanism</div>
+              </div>
+              <div>
+                <img src="zipline-propeller.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Propeller Sub-Assembly" />
+                <div class="media-label">Main Propeller Sub-Assembly — Twisted Blade Geometry</div>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              The bay door mechanism translates rotational motor output into simultaneous lateral displacement of both delivery bay door panels. The door panels were derived directly from the main body solid using an Extrude subtraction, ensuring geometric consistency between the panel outer faces and the body opening with no fit tolerance issues. Integral rack features were extruded from the inner face of each panel, with trapezoidal gear teeth applied as a patterned extrude cut. A pinion gear was modeled with a circular tooth array and a central through-hole to receive the motor shaft. In the sub-assembly, revolute and translational joints were defined at the shaft axis and panel sliding axes respectively, and a rack-and-pinion motion coupling was applied to enforce equal and opposite panel displacement for a given pinion rotation angle.
+            </p>
+
+            <p class="project-desc">
+              A static structural FEA was performed on the cross-shaped motor mount using Simcenter NX with the Nastran SOL 101 Linear Statics solver. The geometry was meshed with CTETRA(10) 10-node quadratic tetrahedral elements at a global size of 1mm, with local refinement at bolt holes and fillet transitions. Both arm end faces were fully constrained to replicate bolted attachment to the main body, and a 5N uniform pressure was applied to the central motor pocket face in the negative Z direction — consistent with gravitational and dynamic thrust loading. The baseline Aluminum 6061 result at 0.25 inch thickness yielded a maximum von Mises stress of 0.589 MPa against a yield strength of 270 MPa, giving a safety factor of approximately 458. Maximum nodal displacement was 9.412×10⁻⁴ mm, confirming the part operates fully within the elastic regime with negligible deformation. A parametric study was then conducted varying material (Aluminum 6061, Nylon, Titanium Ti-6Al-4V) and arm thickness (0.125, 0.25, 0.375 inches), with results showing that stress is geometry-driven and thickness-dependent, while material selection is governed by stiffness and weight rather than structural necessity.
+            </p>
+
+            <div>
+              <img src="zipline-fea.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Motor Mount FEA" />
+              <div class="media-label" style="margin-bottom:2rem;">Motor Mount FEA — Von Mises Stress Distribution (Al 6061, 0.25in, Max: 0.589 MPa)</div>
+            </div>
+            <a href="ME_4042_Group_5_Final_Report.pdf" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-bottom:2rem;">View Full Report →</a>
+            <div class="project-metrics">
+              <div class="metric"><div class="metric-val">458x</div><div class="metric-label">Motor Mount Safety Factor</div></div>
+              <div class="metric"><div class="metric-val">114.5N</div><div class="metric-label">CFD Wind Load at 45mph</div></div>
+              <div class="metric"><div class="metric-val">60</div><div class="metric-label">Total Parts in Assembly</div></div>
+              <div class="metric"><div class="metric-val">26</div><div class="metric-label">Unique Part Files</div></div>
+            </div>
+
+            <div class="project-tags">
+              <span class="tag">Siemens NX</span><span class="tag">Surface Modeling</span>
+              <span class="tag">Through Curve Mesh</span><span class="tag">Sew & Solid Body</span>
+              <span class="tag">FEA — Nastran SOL 101</span><span class="tag">CTETRA(10) Mesh</span>
+              <span class="tag">Von Mises Stress</span><span class="tag">CFD — Simcenter 3D Flow</span>
+              <span class="tag">Rack & Pinion Mechanism</span><span class="tag">Parametric Study</span>
+              <span class="tag">Assembly Constraints</span><span class="tag">Wind Load Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ═══ WATER ENERGY RESEARCH LAB ═══ -->
       <div class="project-item">
         <div class="project-header" onclick="toggleProject(this)">

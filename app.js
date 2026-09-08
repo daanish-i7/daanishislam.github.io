@@ -10,7 +10,7 @@
   async function loadScene(){
     if(loading||window.CoatingScene||reduce.matches||saveData)return;
     const generation=++loadGeneration;loading=true;
-    try{if(!window.THREE)await loadScript('vendor/three.min.js');if(generation!==loadGeneration||reduce.matches)return;await loadScript('coating-scene.js');if(reduce.matches){window.CoatingScene?.dispose();window.CoatingScene=null}else schedule()}catch(e){document.querySelector('.story-visual').classList.add('scene-fallback')}finally{loading=false}
+    try{if(!window.THREE)await loadScript('three.min.js');if(generation!==loadGeneration||reduce.matches)return;await loadScript('coating-scene.js');if(reduce.matches){window.CoatingScene?.dispose();window.CoatingScene=null}else schedule()}catch(e){document.querySelector('.story-visual').classList.add('scene-fallback')}finally{loading=false}
   }
   const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))loadScene()},{rootMargin:'100px'});observer.observe(stage);
   function update(){

@@ -1,0 +1,9 @@
+{
+  "count": 103,
+  "width": 540,
+  "height": 960,
+  "fps": 18,
+  "sourceDuration": 5.722222222222222,
+  "pattern": "assets/spray-frames/frame-{index:03}.webp",
+  "poster": "assets/hero.jpg"
+}

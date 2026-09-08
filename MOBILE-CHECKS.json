@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844,
+        "noOverflow": true,
+        "poster": [
+          "story-mobile.webp"
+        ],
+        "menu": "passed",
+        "oldFrameRequests": 0
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "noOverflow": true,
+        "poster": [
+          "story-mobile.webp"
+        ],
+        "menu": "passed",
+        "oldFrameRequests": 0
+      },
+      {
+        "width": 375,
+        "height": 667,
+        "noOverflow": true,
+        "poster": [
+          "story-mobile.webp"
+        ],
+        "menu": "passed",
+        "oldFrameRequests": 0
+      },
+      {
+        "width": 430,
+        "height": 932,
+        "noOverflow": true,
+        "poster": [
+          "story-mobile.webp"
+        ],
+        "menu": "passed",
+        "oldFrameRequests": 0
+      },
+      {
+        "width": 844,
+        "height": 390,
+        "noOverflow": true,
+        "poster": [
+          "story-mobile.webp"
+        ],
+        "menu": "passed",
+        "oldFrameRequests": 0
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "noOverflow": true,
+        "poster": [
+          "story-desktop.webp"
+        ],
+        "menu": "desktop",
+        "oldFrameRequests": 0
+      }
+    ],
+    "pageErrors": [],
+    "reducedMotion": "No engine/frame requests",
+    "failureFallback": "Poster and menu usable"
+  },
+  "assetBytes": {
+    "assets/story-mobile.webp": 5482,
+    "assets/story-desktop.webp": 17086,
+    "vendor/three.min.js": 669884,
+    "coating-scene.js": 12096
+  },
+  "speedMeasurements": "Not measured; sizes are transfer-file sizes, not loading-speed claims."
+}

@@ -1,953 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daanish Islam | Mechanical Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #080c10;
-      --bg2: #0d1117;
-      --surface: #111820;
-      --border: #1e2d3d;
-      --accent: #00d4ff;
-      --accent2: #ff6b35;
-      --text: #c9d1d9;
-      --text-dim: #4a5568;
-      --text-bright: #e6edf3;
-      --mono: 'Share Tech Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
-      --display: 'Syne', sans-serif;
-    }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="Daanish Islam — Georgia Tech MSME student focused on controls, robotics, automation and mechanical design. Explore industrial robotics, UAV design and hands-on engineering projects." name="description"/><meta content="#0c0e0f" name="theme-color"/><title>Daanish Islam — Design, Controls &amp; Robotics</title><link href="style.css" rel="stylesheet"/><link rel="stylesheet" href="elevated.css"/><link rel="stylesheet" href="mobile.css"/></head>
+<body><a class="skip" href="#projects">Skip to projects</a><header class="site-header"><a class="wordmark" href="#top" aria-label="Daanish Islam, back to introduction"><span class="brand-symbol" aria-hidden="true">DI</span><span class="brand-name">Daanish Islam</span><span class="brand-field"> / ME</span></a><nav aria-label="Main navigation"><a href="#projects">Work</a><a href="#about">About</a><a href="#contact">Contact <span>↗</span></a></nav><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><dialog id="mobile-menu" aria-labelledby="menu-title"><div class="menu-heading"><h2 id="menu-title">Explore.</h2><button class="menu-close" aria-label="Close navigation">×</button></div><nav aria-label="Mobile navigation"><a href="#projects"><span>01</span>Selected work ↗</a><a href="#about"><span>02</span>About me ↗</a><a href="#skills"><span>03</span>Toolkit ↗</a><a href="#contact"><span>04</span>Get in touch ↗</a></nav><p class="menu-note">Daanish Islam<br>Mechanical Engineering · Georgia Tech</p></dialog>
+<main><section aria-label="From programmed motion to finished surface" class="scroll-story" id="top"><div class="story-stage"><div class="story-topline"><span>DAANISH ISLAM / MECHANICAL ENGINEERING</span><a href="#projects">Skip the story ↘</a></div><div class="story-visual"><picture class="story-poster"><source media="(max-width:900px)" srcset="assets/story-mobile.webp"><img src="assets/story-desktop.webp" alt="Original industrial robot and coating cell concept" fetchpriority="high"></picture><div class="scene-shade"></div></div><div class="mobile-story-intro"><h1>Engineering<br>into <em>motion.</em></h1></div><div class="mobile-story-outro" aria-hidden="true" inert><h2>Intent.<br><em>Made tangible.</em></h2></div><a class="mobile-story-action" href="#projects">Explore projects <span>↘</span></a><a class="mobile-story-skip" href="#projects" aria-hidden="true" inert>Skip story ↘</a><span class="mobile-scroll-cue">SCROLL TO TRANSFORM ↓</span><div class="story-copy"><div class="story-chapter active" data-chapter="0"><p class="eyebrow">01 — DESIGN THE MOTION</p><h1>Precision.<br/>Programmed<br/>into <em>motion.</em></h1><p class="story-description">I'm Daanish. A mechanical engineer working at the intersection of design, controls, and robotics.</p></div><div aria-hidden="true" class="story-chapter" data-chapter="1"><p class="eyebrow">02 — CONTROL THE PROCESS</p><h2>Where code<br/>meets <em>metal.</em></h2><p class="story-description">A precise path becomes a stream of energy. Motion, material, and control working as one system.</p></div><div aria-hidden="true" class="story-chapter" data-chapter="2"><p class="eyebrow">03 — VERIFY THE RESULT</p><h2>Built.<br/>Tested.<br/><em>Refined.</em></h2><p class="story-description">One continuous pass transforms the surface. From the first design decision to a controlled outcome.</p><p class="story-result"><strong>Intent →</strong><span>Motion. Material. Performance.<br>A study in controlled transformation.</span></p></div></div><div class="story-caption"><span id="scene-label">KINEMATIC STUDY / ASSEMBLE</span><span>ORIGINAL 3D ANIMATION</span></div><div class="story-bottom"><span>GEORGIA TECH · MSME</span><ol aria-label="Story chapters" class="story-steps"><li class="active">01 <span>Design</span></li><li>02 <span>Control</span></li><li>03 <span>Verify</span></li></ol><span class="scroll-cue">SCROLL TO TRANSFORM ↓</span></div><div class="story-progress"><div></div></div></div></section>
 
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px; pointer-events: none; z-index: 0;
-    }
-    body::after {
-      content: ''; position: fixed; inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
-      pointer-events: none; z-index: 0;
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem; background: rgba(8,12,16,0.85);
-      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { font-family: var(--mono); font-size: 0.9rem; color: var(--accent); letter-spacing: 0.1em; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
-
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 0 3rem; z-index: 1; }
-    .hero-content { max-width: 800px; }
-    .hero-tag { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.6s ease both; }
-    .hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
-    .hero-name { font-family: var(--display); font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 800; line-height: 0.95; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 1rem; animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-name span { color: transparent; -webkit-text-stroke: 1px var(--accent); }
-    .hero-title { font-family: var(--mono); font-size: 1rem; color: var(--text-dim); margin-bottom: 2rem; animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-title .highlight { color: var(--accent2); }
-    .hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--text); max-width: 520px; margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.3s ease both; font-weight: 300; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.4s ease both; }
-
-    .btn { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; text-decoration: none; border: 1px solid; transition: all 0.2s; cursor: pointer; }
-    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-    .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-secondary { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-    .stats-bar { position: relative; z-index: 1; display: flex; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
-    .stat { flex: 1; padding: 2rem 2.5rem; border-right: 1px solid var(--border); transition: background 0.3s; }
-    .stat:last-child { border-right: none; }
-    .stat:hover { background: var(--surface); }
-    .stat-num { font-family: var(--display); font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
-    .stat-label { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; }
-
-    section { position: relative; z-index: 1; padding: 7rem 3rem; max-width: 1200px; margin: 0 auto; }
-    .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
-    .section-num { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; }
-    .section-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--text-bright); letter-spacing: -0.02em; }
-    .section-line { flex: 1; height: 1px; background: var(--border); }
-
-    /* ═══ ACCORDION PROJECT LIST ═══ */
-    .projects-list { border: 1px solid var(--border); }
-
-    .project-item { border-bottom: 1px solid var(--border); }
-    .project-item:last-child { border-bottom: none; }
-
-    .project-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 2rem 2.5rem; cursor: pointer;
-      background: var(--bg2); transition: background 0.2s;
-      user-select: none;
-    }
-    .project-header:hover { background: var(--surface); }
-    .project-header.open { background: var(--surface); border-left: 3px solid var(--accent); }
-
-    .project-header-left { display: flex; flex-direction: column; gap: 0.4rem; }
-
-    .project-header-tag {
-      font-family: var(--mono); font-size: 0.68rem; color: var(--accent2);
-      letter-spacing: 0.15em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 0.4rem;
-    }
-    .project-header-tag::before { content: '▶'; font-size: 0.45rem; }
-
-    .project-header-title {
-      font-family: var(--display); font-size: 1.4rem; font-weight: 700;
-      color: var(--text-bright); line-height: 1.2;
-    }
-
-    .project-header-sub {
-      font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim);
-    }
-
-    .project-header-right { display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; }
-
-    .project-header-metrics { display: flex; gap: 1.5rem; }
-    .project-header-metric { text-align: right; }
-    .project-header-metric-val { font-family: var(--display); font-size: 1.2rem; font-weight: 800; color: var(--accent); }
-    .project-header-metric-label { font-family: var(--mono); font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
-
-    .project-arrow {
-      width: 36px; height: 36px; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-dim); transition: all 0.3s; flex-shrink: 0;
-      font-size: 1rem;
-    }
-    .project-header:hover .project-arrow { border-color: var(--accent); color: var(--accent); }
-    .project-header.open .project-arrow { border-color: var(--accent); color: var(--accent); transform: rotate(180deg); }
-
-    .project-body {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      background: var(--bg2);
-    }
-    .project-body.open { max-height: 9999px; }
-
-    .project-body-inner { padding: 2.5rem 2.5rem 3rem; border-top: 1px solid var(--border); }
-
-    /* reuse existing styles inside accordion */
-    .project-desc { font-size: 0.95rem; line-height: 1.8; color: var(--text); font-weight: 300; margin-bottom: 2rem; }
-    .project-metrics { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .metric { display: flex; flex-direction: column; gap: 0.25rem; }
-    .metric-val { font-family: var(--display); font-size: 1.6rem; font-weight: 800; color: var(--accent); }
-    .metric-label { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); border: 1px solid var(--border); padding: 0.3rem 0.7rem; letter-spacing: 0.08em; transition: all 0.2s; }
-    .tag:hover { border-color: var(--accent); color: var(--accent); }
-    .media-label { font-family: var(--mono); font-size: 0.72rem; color: #4a5568; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem; }
-
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
-    .skill-group { background: var(--bg2); padding: 2.5rem; transition: background 0.3s; }
-    .skill-group:hover { background: var(--surface); }
-    .skill-group-title { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
-    .skill-list { display: flex; flex-direction: column; gap: 0.6rem; }
-    .skill-item { font-size: 0.88rem; color: var(--text); font-weight: 300; display: flex; align-items: center; gap: 0.6rem; }
-    .skill-item::before { content: ''; width: 4px; height: 4px; background: var(--accent2); flex-shrink: 0; }
-
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-    .about-label { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; }
-    .about-text { font-size: 1rem; line-height: 1.9; color: var(--text); font-weight: 300; margin-bottom: 1.5rem; }
-    .edu-card { background: var(--bg2); border: 1px solid var(--border); padding: 2rem 2.5rem; margin-bottom: 1px; transition: background 0.3s; }
-    .edu-card:hover { background: var(--surface); }
-    .edu-school { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text-bright); margin-bottom: 0.25rem; }
-    .edu-degree { font-size: 0.9rem; color: var(--text); font-weight: 300; margin-bottom: 0.5rem; }
-    .edu-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.08em; }
-    .gpa-badge { display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); font-family: var(--mono); font-size: 0.72rem; padding: 0.25rem 0.65rem; margin-left: 0.75rem; }
-
-    /* CONTACT */
-    .contact-wrapper { background: var(--bg2); border: 1px solid var(--border); padding: 4rem; position: relative; overflow: hidden; }
-    .contact-wrapper::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%); pointer-events: none; }
-    .contact-title { font-family: var(--display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: var(--text-bright); letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .contact-sub { color: var(--text-dim); margin-bottom: 3rem; font-family: var(--mono); font-size: 0.85rem; }
-    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .contact-link { display: flex; align-items: center; gap: 0.65rem; font-family: var(--mono); font-size: 0.8rem; color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 0.85rem 1.5rem; letter-spacing: 0.08em; transition: all 0.2s; }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-
-    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-text { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.08em; }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .cursor { display: inline-block; width: 8px; height: 1.1em; background: var(--accent); margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 6rem 1.5rem 3rem; }
-      .stats-bar { flex-direction: column; }
-      .stat { border-right: none; border-bottom: 1px solid var(--border); }
-      section { padding: 4rem 1.5rem; }
-      .project-header { padding: 1.5rem; }
-      .project-header-metrics { display: none; }
-      .project-body-inner { padding: 1.5rem; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .contact-wrapper { padding: 2rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">DI_PORTFOLIO.exe</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-tag">Georgia Tech · Mechanical Engineering · Class of 2026</div>
-      <h1 class="hero-name">Daanish<br /><span>Islam</span></h1>
-      <div class="hero-title"><span class="highlight">Automation &amp; Robotics</span> · Design · Manufacturing</div>
-      <p class="hero-desc">Building things that work. From FANUC robots at a battery recycling plant to industrial hydraulics in Bangladesh — I close the loop between CAD and the factory floor.</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="mailto:dislam7@gatech.edu" class="btn btn-secondary">Get In Touch</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat"><div class="stat-num">3.62</div><div class="stat-label">GPA · Dean's List</div></div>
-    <div class="stat"><div class="stat-num">~12%</div><div class="stat-label">Coating Cycle Time Reduction</div></div>
-    <div class="stat"><div class="stat-num">21%</div><div class="stat-label">Downtime Reduction</div></div>
-    <div class="stat"><div class="stat-num">220+</div><div class="stat-label">Students Tutored</div></div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header">
-      <span class="section-num">01 /</span>
-      <h2 class="section-title">About</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid reveal">
-      <div>
-        <div class="about-label">Background</div>
-        <p class="about-text">Senior Mechanical Engineering student at Georgia Tech concentrating in Automation and Robotics, graduating May 2026. My work sits at the intersection of mechanical design, manufacturing, and automation — turning ideas in SolidWorks into systems that perform under real industrial conditions.</p>
-        <p class="about-text">I've designed and fabricated components deployed in active manufacturing lines, programmed industrial robots for thermal spray coating, and conducted hands-on metallurgical testing. I care about the full cycle: design, validate, build, test, iterate.</p>
-        <a href="Daanish_Islam_Resume.pdf" class="btn btn-secondary" style="display:inline-block;margin-top:0.5rem;">Download Resume →</a>
-      </div>
-      <div>
-        <div class="about-label" style="margin-bottom:1rem;">Education</div>
-        <div class="edu-card">
-          <div class="edu-school">Georgia Institute of Technology</div>
-          <div class="edu-degree">B.S. Mechanical Engineering · Automation &amp; Robotics</div>
-          <div class="edu-meta">Aug 2022 – May 2026 &nbsp;·&nbsp; Atlanta, GA <span class="gpa-badge">GPA 3.62</span></div>
-        </div>
-        <div style="margin-top:1.5rem;">
-          <div class="about-label">Relevant Coursework</div>
-          <div class="project-tags" style="margin-top:0.75rem;">
-            <span class="tag">Machine Design</span><span class="tag">Robotics</span>
-            <span class="tag">Fluid Mechanics</span><span class="tag">Thermodynamics</span>
-            <span class="tag">Heat Transfer</span><span class="tag">System Dynamics</span>
-            <span class="tag">FEA/CAE</span><span class="tag">Material Science</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-header">
-      <span class="section-num">02 /</span>
-      <h2 class="section-title">Projects</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="projects-list reveal">
-
-      <!-- ═══ REDWOOD MATERIALS ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Mechanical Engineering Intern · May–Aug 2025</div>
-            <div class="project-header-title">Bed Sensor Flange Mount & FANUC Robot Programming</div>
-            <div class="project-header-sub">Redwood Materials · Reno, NV</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">~12%</div>
-                <div class="project-header-metric-label">Cycle Time ↓</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">250 RPM</div>
-                <div class="project-header-metric-label">Max Speed</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Designed and assembled a custom fixture to spin a bed sensor flange for a thermal spray coating operation. Engineered around real constraints, targeting up to 250 RPM while staying within motor torque limits, selecting 11-gauge mild steel for the rotating section and 2×2 square steel tubing for the fixed stand. Built in tab-and-slot features to simplify welding and assembly, and ran RPM and robot speed calculations across different flange diameters to dial in process parameters.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="assembly.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture Assembly" />
-                <div class="media-label">SolidWorks Assembly — Bed Sensor Mount</div>
-              </div>
-              <div>
-                <img src="assembly-drawing.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
-                <div class="media-label">2D Assembly Drawing — BOM & Exploded View</div>
-              </div>
-            </div>
-
-            <p class="project-desc">Programmed a FANUC robot via teach pendant to coat both the top surface and inner diameter of the flange, and used FANUC ROBOGUIDE to simulate and validate spray paths. Supported coating quality verification to confirm thickness met target; final coating landed in the 240–320 micron range. Part of a broader HVOF thermal spray operation that improved coating cycle time by ~12%.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <div style="position:relative;padding-bottom:120%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-                  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/eI6Ww2LsbVc" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="media-label">FANUC Robot — Coating Plate</div>
-              </div>
-              <div>
-                <div style="position:relative;padding-bottom:120%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-                  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/OQbHTClUJ6A" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="media-label">FANUC Robot — Coating Flange</div>
-              </div>
-            </div>
-
-            <div>
-              <img src="Coated-flange.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Coated Flange" />
-              <div class="media-label" style="margin-bottom:2rem;">Coated Flange — 240–320μm Thickness</div>
-            </div>
-
-            <p class="project-desc">Conducted metallurgy-based testing to verify coating quality, including microhardness, surface roughness, tensile, and adhesion tests, confirming coating thickness in the 200–400 micron range and proper material hardness. Streamlined the testing workflow, cutting total process time from 9 to 7 hours.</p>
-
-            <div>
-              <img src="metallurgy.jpg" style="width:100%;height:400px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Metallurgy Testing" />
-              <div class="media-label" style="margin-bottom:2rem;">Metallurgy Testing — Hardness & Roughness Verification</div>
-            </div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">~12%</div><div class="metric-label">Cycle Time Reduction</div></div>
-              <div class="metric"><div class="metric-val">250 RPM</div><div class="metric-label">Max Fixture Speed</div></div>
-              <div class="metric"><div class="metric-val">240–320μm</div><div class="metric-label">Coating Thickness</div></div>
-              <div class="metric"><div class="metric-val">2 hrs</div><div class="metric-label">Testing Time Saved</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">FANUC Robot</span><span class="tag">Teach Pendant</span>
-              <span class="tag">ROBOGUIDE</span><span class="tag">HVOF Coating</span><span class="tag">11-Gauge Mild Steel</span>
-              <span class="tag">Tab-and-Slot Welding</span><span class="tag">GD&T</span><span class="tag">Microhardness Testing</span>
-              <span class="tag">Surface Roughness</span><span class="tag">Tensile & Adhesion Testing</span><span class="tag">Metallurgy</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ BANGLADESH STEEL ═══ -->
-      <!-- <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Manufacturing Engineering Intern · May–Jul 2024</div>
-            <div class="project-header-title">Bangladesh Steel Re-Rolling Mills</div>
-            <div class="project-header-sub">Bangladesh · Large-Scale Steel Manufacturing</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">21%</div>
-                <div class="project-header-metric-label">Downtime ↓</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">3–5 days</div>
-                <div class="project-header-metric-label">Lead Time ↓</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Led root cause analysis on recurring failures across hydraulic, pneumatic, and cooling systems — identifying valve wear and pressure inconsistencies across the production line. Designed and fabricated replacement valves, jigs, and lifting fixtures in SolidWorks; used CFD analysis to optimize flow performance and maintenance accessibility. Tracked procurement and material flow under ISO 9001 procedures, identifying bottlenecks in vendor coordination that directly reduced equipment replacement lead times.</p>
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">21%</div><div class="metric-label">Unplanned Downtime Reduction</div></div>
-              <div class="metric"><div class="metric-val">3–5 days</div><div class="metric-label">Lead Time Reduced</div></div>
-            </div>
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">CFD Analysis</span><span class="tag">Hydraulic Systems</span>
-              <span class="tag">Pneumatic Systems</span><span class="tag">Root Cause Analysis</span><span class="tag">ISO 9001</span>
-              <span class="tag">Fabrication</span>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- ═══ ZIPLINE P2 DROID ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Interactive CAD & CAE · Jan–May 2026</div>
-            <div class="project-header-title">Zipline P2 Delivery Droid — Modelling & FEA</div>
-            <div class="project-header-sub">Georgia Institute of Technology · ME 4042 · Atlanta, GA</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">458x</div>
-                <div class="project-header-metric-label">Safety Factor</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">60</div>
-                <div class="project-header-metric-label">Total Parts</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-
-            <p class="project-desc">
+<section class="work-section" id="projects"><div class="section-heading"><p class="eyebrow">01 / PROJECT INDEX</p><h2>Engineering,<br/><em>in practice.</em></h2><p>Industrial robotics. Research systems. Mechanical design.</p></div><div class="project-grid" id="project-grid"><article class="project" id="project-1"><div class="project-visual"><img alt="Concept illustration for Bed Sensor Flange Mount &amp; FANUC Robot Programming" loading="lazy" src="assets/covers/project-1.webp" srcset="assets/covers/project-1-small.webp 600w, assets/covers/project-1.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">01</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Redwood Materials · Reno, NV</p><p class="project-period">Mechanical Engineering Intern · May–Aug 2025</p><h3>Bed Sensor Flange Mount &amp; FANUC Robot Programming</h3><p>A custom thermal-spray fixture and validated FANUC paths. Built around motor torque, fabrication, and coating quality.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>Bed Sensor Flange Mount &amp; FANUC Robot Programming</h4><p class="eyebrow">Redwood Materials · Reno, NV</p>
+<p class="project-desc">Designed and assembled a custom fixture to spin a bed sensor flange for a thermal spray coating operation. Engineered around real constraints, targeting up to 250 RPM while staying within motor torque limits, selecting 11-gauge mild steel for the rotating section and 2×2 square steel tubing for the fixed stand. Built in tab-and-slot features to simplify welding and assembly, and ran RPM and robot speed calculations across different flange diameters to dial in process parameters.</p>
+<div>
+<div>
+<img alt="Fixture Assembly" loading="lazy" src="assets/assembly.jpg"/>
+<div class="media-label">SolidWorks Assembly — Bed Sensor Mount</div>
+</div>
+<div>
+<img alt="Redwood coating fixture — exploded assembly drawing" loading="lazy" src="assets/redwood-fixture-drawing.jpg"/>
+<div class="media-label">2D Assembly Drawing — BOM &amp; Exploded View</div>
+</div>
+</div>
+<p class="project-desc">Programmed a FANUC robot via teach pendant to coat both the top surface and inner diameter of the flange, and used FANUC ROBOGUIDE to simulate and validate spray paths. Supported coating quality verification to confirm thickness met target; final coating landed in the 240–320 micron range. Part of a broader HVOF thermal spray operation that improved coating cycle time by ~12%.</p>
+<div>
+<div>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/eI6Ww2LsbVc" title="Bed Sensor Flange Mount &amp; FANUC Robot Programming demonstration"></iframe>
+</div>
+<div class="media-label">FANUC Robot — Coating Plate</div>
+</div>
+<div>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/OQbHTClUJ6A" title="Bed Sensor Flange Mount &amp; FANUC Robot Programming demonstration"></iframe>
+</div>
+<div class="media-label">FANUC Robot — Coating Flange</div>
+</div>
+</div>
+<div>
+<img alt="Coated Flange" loading="lazy" src="assets/Coated-flange.jpg"/>
+<div class="media-label">Coated Flange — 240–320μm Thickness</div>
+</div>
+<p class="project-desc">Conducted metallurgy-based testing to verify coating quality, including microhardness, surface roughness, tensile, and adhesion tests, confirming coating thickness in the 200–400 micron range and proper material hardness. Streamlined the testing workflow, cutting total process time from 9 to 7 hours.</p>
+<div>
+<img alt="Metallurgy Testing" loading="lazy" src="assets/metallurgy.jpg"/>
+<div class="media-label">Metallurgy Testing — Hardness &amp; Roughness Verification</div>
+</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">~12%</div><div class="metric-label">Cycle Time Reduction</div></div>
+<div class="metric"><div class="metric-val">250 RPM</div><div class="metric-label">Max Fixture Speed</div></div>
+<div class="metric"><div class="metric-val">240–320μm</div><div class="metric-label">Coating Thickness</div></div>
+<div class="metric"><div class="metric-val">2 hrs</div><div class="metric-label">Testing Time Saved</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">SolidWorks</span><span class="tag">FANUC Robot</span><span class="tag">Teach Pendant</span>
+<span class="tag">ROBOGUIDE</span><span class="tag">HVOF Coating</span><span class="tag">11-Gauge Mild Steel</span>
+<span class="tag">Tab-and-Slot Welding</span><span class="tag">GD&amp;T</span><span class="tag">Microhardness Testing</span>
+<span class="tag">Surface Roughness</span><span class="tag">Tensile &amp; Adhesion Testing</span><span class="tag">Metallurgy</span>
+</div>
+</div></details></div></article><article class="project" id="project-2"><div class="project-visual"><img alt="Concept illustration for Zipline P2 Delivery Droid — Modelling &amp; FEA" loading="lazy" src="assets/covers/project-2.webp" srcset="assets/covers/project-2-small.webp 600w, assets/covers/project-2.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">02</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Georgia Institute of Technology · ME 4042 · Atlanta, GA</p><p class="project-period">Interactive CAD &amp; CAE · Jan–May 2026</p><h3>Zipline P2 Delivery Droid — Modelling &amp; FEA</h3><p>A 60-part Siemens NX reconstruction with a rack-and-pinion delivery mechanism and motor-mount structural analysis.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>Zipline P2 Delivery Droid — Modelling &amp; FEA</h4><p class="eyebrow">Georgia Institute of Technology · ME 4042 · Atlanta, GA</p>
+<p class="project-desc">
               Modelled and analyzed the Zipline P2 delivery droid — the small autonomous sub-vehicle that descends from the main drone to achieve doorstep-level delivery accuracy in urban environments. The droid uses three motors and propellers to counteract wind loads and precisely position itself during descent, and the goal of the project was to accurately replicate its geometry in Siemens NX and perform computational and structural analysis to validate the design against key performance specifications.
             </p>
-
-            <p class="project-desc">
+<p class="project-desc">
               The main body was built from scratch by importing six-sided raster reference images into NX and scaling them to a known bounding box. Bounding curves were generated for half the body and surfaced using Through Curves, Through Curve Meshes, and Studio Surfaces. The resulting half-body sheet was mirrored about the symmetry plane, and all surfaces were sewn into a closed solid. Edge Blend operations were applied along all surface seams to achieve smooth curvature transitions. Following the smooth body creation, Sweep and Extrude subtract operations were used to cut openings for the side propeller assemblies, rear motor bay, light bars, drone feet, front screen, lid, food/medicine compartment, and bay doors — with extruded hinge features added to interface with the lid mechanism.
             </p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="zipline-assembly1.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Zipline Assembly Closed" />
-                <div class="media-label">Full Assembly — Closed Configuration</div>
-              </div>
-              <div>
-                <img src="zipline-assembly2.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Zipline Assembly Open" />
-                <div class="media-label">Full Assembly — Open Lid Configuration</div>
-              </div>
-            </div>
-
-            <p class="project-desc">
+<div><img src="assets/zipline-assembly1.jpg" alt="Zipline Assembly Closed" loading="lazy" width="419" height="385"/><div class="media-label">Full Assembly — Closed Configuration</div></div>
+<div><img src="assets/zipline-assembly2.jpg" alt="Zipline Assembly Open" loading="lazy" width="480" height="421"/><div class="media-label">Full Assembly — Open Lid Configuration</div></div>
+<div><img src="assets/zipline-internal.jpg" alt="Internal Assembly View" loading="lazy" width="890" height="541"/><div class="media-label">Transparent View — Internal Motor &amp; Bay Door Mechanism</div></div>
+<p class="project-desc">
               The main propeller sub-assembly required the highest modeling complexity in the project. Each blade was defined by sketching cross-sectional airfoil profiles on a series of offset datum planes along the blade span, capturing the varying chord width and twist angle at each station. A Through-Curves loft was applied through all cross-sectional sketches to generate a smooth, twisted blade surface. A single blade was then patterned in a five-instance circular array about the hub axis. The hub itself was modeled as a cylindrical boss with a tapered bore to receive the motor shaft, united with a short collar extrusion. The propeller cover — a cage-like annular guard — was modeled as a circular extrude with a concentric cutout, with radial structural bars patterned circumferentially from a central hub ring to the outer rim. The mounting bracket was modeled as an L-shaped extrusion with edge blends at the internal corner to reduce stress concentration, with bolt patterns on both faces for attachment to the main body and motor rear face.
             </p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="zipline-internal.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Internal Assembly View" />
-                <div class="media-label">Transparent View — Internal Motor & Bay Door Mechanism</div>
-              </div>
-              <div>
-                <img src="zipline-propeller.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Propeller Sub-Assembly" />
-                <div class="media-label">Main Propeller Sub-Assembly — Twisted Blade Geometry</div>
-              </div>
-            </div>
-
-            <p class="project-desc">
+<div><img src="assets/zipline-propeller.jpg" alt="Propeller Sub-Assembly" loading="lazy" width="484" height="552"/><div class="media-label">Main Propeller Sub-Assembly — Twisted Blade Geometry</div></div>
+<p class="project-desc">
               The bay door mechanism translates rotational motor output into simultaneous lateral displacement of both delivery bay door panels. The door panels were derived directly from the main body solid using an Extrude subtraction, ensuring geometric consistency between the panel outer faces and the body opening with no fit tolerance issues. Integral rack features were extruded from the inner face of each panel, with trapezoidal gear teeth applied as a patterned extrude cut. A pinion gear was modeled with a circular tooth array and a central through-hole to receive the motor shaft. In the sub-assembly, revolute and translational joints were defined at the shaft axis and panel sliding axes respectively, and a rack-and-pinion motion coupling was applied to enforce equal and opposite panel displacement for a given pinion rotation angle.
             </p>
-
-            <p class="project-desc">
+<p class="project-desc">
               A static structural FEA was performed on the cross-shaped motor mount using Simcenter NX with the Nastran SOL 101 Linear Statics solver. The geometry was meshed with CTETRA(10) 10-node quadratic tetrahedral elements at a global size of 1mm, with local refinement at bolt holes and fillet transitions. Both arm end faces were fully constrained to replicate bolted attachment to the main body, and a 5N uniform pressure was applied to the central motor pocket face in the negative Z direction — consistent with gravitational and dynamic thrust loading. The baseline Aluminum 6061 result at 0.25 inch thickness yielded a maximum von Mises stress of 0.589 MPa against a yield strength of 270 MPa, giving a safety factor of approximately 458. Maximum nodal displacement was 9.412×10⁻⁴ mm, confirming the part operates fully within the elastic regime with negligible deformation. A parametric study was then conducted varying material (Aluminum 6061, Nylon, Titanium Ti-6Al-4V) and arm thickness (0.125, 0.25, 0.375 inches), with results showing that stress is geometry-driven and thickness-dependent, while material selection is governed by stiffness and weight rather than structural necessity.
             </p>
+<div><img src="assets/zipline-fea.jpg" alt="Motor Mount FEA" loading="lazy" width="713" height="640"/><div class="media-label">Motor Mount FEA — Von Mises Stress Distribution (Al 6061, 0.25in, Max: 0.589 MPa)</div></div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">458x</div><div class="metric-label">Motor Mount Safety Factor</div></div>
+<div class="metric"><div class="metric-val">114.5N</div><div class="metric-label">CFD Wind Load at 45mph</div></div>
+<div class="metric"><div class="metric-val">60</div><div class="metric-label">Total Parts in Assembly</div></div>
+<div class="metric"><div class="metric-val">26</div><div class="metric-label">Unique Part Files</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">Siemens NX</span><span class="tag">Surface Modeling</span>
+<span class="tag">Through Curve Mesh</span><span class="tag">Sew &amp; Solid Body</span>
+<span class="tag">FEA — Nastran SOL 101</span><span class="tag">CTETRA(10) Mesh</span>
+<span class="tag">Von Mises Stress</span><span class="tag">CFD — Simcenter 3D Flow</span>
+<span class="tag">Rack &amp; Pinion Mechanism</span><span class="tag">Parametric Study</span>
+<span class="tag">Assembly Constraints</span><span class="tag">Wind Load Analysis</span>
+</div>
 
-            <div>
-              <img src="zipline-fea.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Motor Mount FEA" />
-              <div class="media-label" style="margin-bottom:2rem;">Motor Mount FEA — Von Mises Stress Distribution (Al 6061, 0.25in, Max: 0.589 MPa)</div>
-            </div>
-            <a href="ME_4042_Group_5_Final_Report.pdf" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-bottom:2rem;">View Full Report →</a>
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">458x</div><div class="metric-label">Motor Mount Safety Factor</div></div>
-              <div class="metric"><div class="metric-val">114.5N</div><div class="metric-label">CFD Wind Load at 45mph</div></div>
-              <div class="metric"><div class="metric-val">60</div><div class="metric-label">Total Parts in Assembly</div></div>
-              <div class="metric"><div class="metric-val">26</div><div class="metric-label">Unique Part Files</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">Siemens NX</span><span class="tag">Surface Modeling</span>
-              <span class="tag">Through Curve Mesh</span><span class="tag">Sew & Solid Body</span>
-              <span class="tag">FEA — Nastran SOL 101</span><span class="tag">CTETRA(10) Mesh</span>
-              <span class="tag">Von Mises Stress</span><span class="tag">CFD — Simcenter 3D Flow</span>
-              <span class="tag">Rack & Pinion Mechanism</span><span class="tag">Parametric Study</span>
-              <span class="tag">Assembly Constraints</span><span class="tag">Wind Load Analysis</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ WATER ENERGY RESEARCH LAB ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Research Assistant · Jan–Apr 2025</div>
-            <div class="project-header-title">LCST Desalination Loop — Mass Exchanger Design</div>
-            <div class="project-header-sub">Water–Energy Research Lab · Georgia Tech</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">+71%</div>
-                <div class="project-header-metric-label">RH Increase</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">96.7%</div>
-                <div class="project-header-metric-label">Final RH</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Designed and 3D printed mass exchanger components for a Single Stage LCST (Lower Critical Solution Temperature) desalination loop — a thermally-driven process that separates water from brine using a polymer solution that phase-shifts at a critical temperature. The system cycles brine through warm solution (WS) and water recovery (WR) stages, with air pumps driving humid air across mass exchanger beds while humidity (RH), temperature (T), and flow (F) sensors monitor conditions at each node.</p>
-
-            <div>
-              <img src="Process-diagram.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="LCST Process Diagram" />
-              <div class="media-label" style="margin-bottom:2rem;">Single Stage LCST Process Diagram — Water–Energy Research Lab, Georgia Tech</div>
-            </div>
-
-            <p class="project-desc">Using SolidWorks, designed detailed CAD models of the mass exchanger components and integrated mounting features for humidity and pressure sensors, control valves, a motor, and a water pump. All components were 3D printed in-house and assembled into a functional test loop. Used Sensirion sensors for real-time humidity and temperature data acquisition throughout testing.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="Fixture-CAD.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Fixture CAD" />
-                <div class="media-label">SolidWorks CAD — Mass Exchanger Components</div>
-              </div>
-              <div>
-                <img src="Physical-setup.jpg" style="width:100%;height:420px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Physical Setup" />
-                <div class="media-label">Physical Test Setup — Assembled Loop</div>
-              </div>
-            </div>
-
-            <p class="project-desc">Built and tested multiple configurations of the mass exchanger to evaluate desalination performance, mass exchange efficiency, and leakage control under varying conditions. Each configuration informed design iterations, adjusting geometry, seal interfaces, and flow paths, to progressively improve system performance.</p>
-
-            <div style="display:flex;justify-content:center;margin-bottom:2rem;">
-              <div style="width:25%;">
-                <div style="position:relative;padding-bottom:177%;height:0;overflow:hidden;border:1px solid #1e2d3d;">
-                  <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/hdqdSR90lYM" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="media-label">Live System — Flow Test</div>
-              </div>
-            </div>
-
-            <p class="project-desc">The final configuration achieved a relative humidity increase from 25.7% to 96.7%, validating the mass exchanger's ability to drive effective moisture transfer across the loop.</p>
-
-            <div>
-              <img src="RH-result.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="RH Result" />
-              <div class="media-label" style="margin-bottom:2rem;">Relative Humidity Result — 25.7% to 96.7%</div>
-            </div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">25.7%</div><div class="metric-label">Initial Relative Humidity</div></div>
-              <div class="metric"><div class="metric-val">96.7%</div><div class="metric-label">Final Relative Humidity</div></div>
-              <div class="metric"><div class="metric-val">+71%</div><div class="metric-label">RH Increase Achieved</div></div>
-              <div class="metric"><div class="metric-val">2+</div><div class="metric-label">Configurations Tested</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">3D Printing</span><span class="tag">LCST Desalination</span>
-              <span class="tag">Mass Exchanger Design</span><span class="tag">Sensirion Sensors</span><span class="tag">Humidity Sensing</span>
-              <span class="tag">Pressure Sensors</span><span class="tag">Data Analysis</span><span class="tag">Iterative Design</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ VW BEETLE ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Interactive CAD & CAE · Feb–Mar 2026</div>
-            <div class="project-header-title">Classic VW Beetle — Surface Modeling in Siemens NX</div>
-            <div class="project-header-sub">Georgia Institute of Technology · ME 4042</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">G2</div>
-                <div class="project-header-metric-label">Continuity</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">129+</div>
-                <div class="project-header-metric-label">Operations</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Designed a full 3D model of a classic Volkswagen Beetle in Siemens NX, starting from scratch using spline-based wireframe construction and building up to a complete solid body assembly. The project required generating all geometry from parametric curves — no imported bodies — forcing every surface patch, blend, and transition to be explicitly defined and modifiable.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="beetle-sketch.jpg" style="width:100%;height:320px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="VW Beetle Splines" />
-                <div class="media-label">Spline Wireframe & Curves — Body Profile Construction</div>
-              </div>
-              <div>
-                <img src="beetle-model.jpg" style="width:100%;height:320px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="VW Beetle Model" />
-                <div class="media-label">Final Rendered Model — Fully Surfaced Solid Body</div>
-              </div>
-            </div>
-
-            <p class="project-desc">Surfaces were generated from the spline network using N-Sided Surface, Through Curve Mesh, Ruled, and Fill Surface operations. Through Curve Mesh was critical for the roof and hood panels; by defining primary and cross curves simultaneously, curvature-continuous G2 surface patches were achieved across all major body sections. Interior curves were used within UV orientation settings to control surface shape without introducing additional boundary constraints.</p>
-
-            <p class="project-desc">Achieving G2 continuity across the hood, roof, and door panels was a core requirement, enforced by carefully matching tangent direction and curvature magnitude at all shared edges between adjacent patches. Edge Blend operations were applied throughout to eliminate sharp transitions, with individual segment blending used at complex corners where chain blending caused failures. Additional features including bumpers, headlights, door trim lines, window frames, wheel hubs, and axles were modeled beyond the basic requirements.</p>
-
-            <div style="margin-bottom:2rem;">
-              <iframe title="VW Beetle" width="100%" height="500"
-                src="https://sketchfab.com/models/57b4602522b14c96958c40630878cd04/embed"
-                frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                style="border:1px solid #1e2d3d;">
-              </iframe>
-              <div class="media-label" style="margin-bottom:1rem;">Interactive 3D Model — Drag to Rotate</div>
-            </div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">G2</div><div class="metric-label">Surface Continuity Achieved</div></div>
-              <div class="metric"><div class="metric-val">129+</div><div class="metric-label">Modeling Operations</div></div>
-              <div class="metric"><div class="metric-val">Full</div><div class="metric-label">Solid Body Assembly</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">Siemens NX</span><span class="tag">Surface Modeling</span><span class="tag">Spline Construction</span>
-              <span class="tag">G2 Continuity</span><span class="tag">Through Curve Mesh</span><span class="tag">N-Sided Surface</span>
-              <span class="tag">Edge Blend</span><span class="tag">Mirror Geometry</span><span class="tag">Sew & Solid Body</span>
-              <span class="tag">Datum Planes</span><span class="tag">Fill Surface</span><span class="tag">Wireframe Modeling</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ VIP BETTER PLACE DRONES ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">VIP Research Program · Jan 2025 – Present</div>
-            <div class="project-header-title">Tethered UAV Relay System — Better Place Drones</div>
-            <div class="project-header-sub">Georgia Institute of Technology · VIP Program · Atlanta, GA</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">X8</div>
-                <div class="project-header-metric-label">UAV Platform</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">2</div>
-                <div class="project-header-metric-label">Designs Built</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-
-            <p class="project-desc">
+<p><a href="assets/ME_4042_Group_5_Final_Report.pdf" target="_blank" rel="noopener">Read the full project report ↗</a></p>
+</div></details></div></article><article class="project" id="project-3"><div class="project-visual"><img alt="Concept illustration for LCST Desalination Loop — Mass Exchanger Design" loading="lazy" src="assets/covers/project-3.webp" srcset="assets/covers/project-3-small.webp 600w, assets/covers/project-3.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">03</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Water–Energy Research Lab · Georgia Tech</p><p class="project-period">Research Assistant · Jan–Apr 2025</p><h3>LCST Desalination Loop — Mass Exchanger Design</h3><p>Designed, printed, and tested a mass exchanger that increased relative humidity from 25.7% to 96.7%.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>LCST Desalination Loop — Mass Exchanger Design</h4><p class="eyebrow">Water–Energy Research Lab · Georgia Tech</p>
+<p class="project-desc">Designed and 3D printed mass exchanger components for a Single Stage LCST (Lower Critical Solution Temperature) desalination loop — a thermally-driven process that separates water from brine using a polymer solution that phase-shifts at a critical temperature. The system cycles brine through warm solution (WS) and water recovery (WR) stages, with air pumps driving humid air across mass exchanger beds while humidity (RH), temperature (T), and flow (F) sensors monitor conditions at each node.</p>
+<div>
+<img alt="LCST Process Diagram" loading="lazy" src="assets/Process-diagram.jpg"/>
+<div class="media-label">Single Stage LCST Process Diagram — Water–Energy Research Lab, Georgia Tech</div>
+</div>
+<p class="project-desc">Using SolidWorks, designed detailed CAD models of the mass exchanger components and integrated mounting features for humidity and pressure sensors, control valves, a motor, and a water pump. All components were 3D printed in-house and assembled into a functional test loop. Used Sensirion sensors for real-time humidity and temperature data acquisition throughout testing.</p>
+<div>
+<div>
+<img alt="Fixture CAD" loading="lazy" src="assets/Fixture-CAD.jpg"/>
+<div class="media-label">SolidWorks CAD — Mass Exchanger Components</div>
+</div>
+<div>
+<img alt="Physical Setup" loading="lazy" src="assets/Physical-setup.jpg"/>
+<div class="media-label">Physical Test Setup — Assembled Loop</div>
+</div>
+</div>
+<p class="project-desc">Built and tested multiple configurations of the mass exchanger to evaluate desalination performance, mass exchange efficiency, and leakage control under varying conditions. Each configuration informed design iterations, adjusting geometry, seal interfaces, and flow paths, to progressively improve system performance.</p>
+<div>
+<div>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/hdqdSR90lYM" title="LCST Desalination Loop — Mass Exchanger Design demonstration"></iframe>
+</div>
+<div class="media-label">Live System — Flow Test</div>
+</div>
+</div>
+<p class="project-desc">The final configuration achieved a relative humidity increase from 25.7% to 96.7%, validating the mass exchanger's ability to drive effective moisture transfer across the loop.</p>
+<div>
+<img alt="RH Result" loading="lazy" src="assets/RH-result.jpg"/>
+<div class="media-label">Relative Humidity Result — 25.7% to 96.7%</div>
+</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">25.7%</div><div class="metric-label">Initial Relative Humidity</div></div>
+<div class="metric"><div class="metric-val">96.7%</div><div class="metric-label">Final Relative Humidity</div></div>
+<div class="metric"><div class="metric-val">+71%</div><div class="metric-label">RH Increase Achieved</div></div>
+<div class="metric"><div class="metric-val">2+</div><div class="metric-label">Configurations Tested</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">SolidWorks</span><span class="tag">3D Printing</span><span class="tag">LCST Desalination</span>
+<span class="tag">Mass Exchanger Design</span><span class="tag">Sensirion Sensors</span><span class="tag">Humidity Sensing</span>
+<span class="tag">Pressure Sensors</span><span class="tag">Data Analysis</span><span class="tag">Iterative Design</span>
+</div>
+</div></details></div></article><article class="project" id="project-4"><div class="project-visual"><img alt="Concept illustration for Classic VW Beetle — Surface Modeling in Siemens NX" loading="lazy" src="assets/covers/project-4.webp" srcset="assets/covers/project-4-small.webp 600w, assets/covers/project-4.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">04</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Georgia Institute of Technology · ME 4042</p><p class="project-period">Interactive CAD &amp; CAE · Feb–Mar 2026</p><h3>Classic VW Beetle — Surface Modeling in Siemens NX</h3><p>A complete Volkswagen Beetle model, built from parametric splines with G2 surface continuity.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>Classic VW Beetle — Surface Modeling in Siemens NX</h4><p class="eyebrow">Georgia Institute of Technology · ME 4042</p>
+<p class="project-desc">Designed a full 3D model of a classic Volkswagen Beetle in Siemens NX, starting from scratch using spline-based wireframe construction and building up to a complete solid body assembly. The project required generating all geometry from parametric curves — no imported bodies — forcing every surface patch, blend, and transition to be explicitly defined and modifiable.</p>
+<div>
+<div>
+<img alt="VW Beetle Splines" loading="lazy" src="assets/beetle-sketch.jpg"/>
+<div class="media-label">Spline Wireframe &amp; Curves — Body Profile Construction</div>
+</div>
+<div>
+<img alt="VW Beetle Model" loading="lazy" src="assets/beetle-model.jpg"/>
+<div class="media-label">Final Rendered Model — Fully Surfaced Solid Body</div>
+</div>
+</div>
+<p class="project-desc">Surfaces were generated from the spline network using N-Sided Surface, Through Curve Mesh, Ruled, and Fill Surface operations. Through Curve Mesh was critical for the roof and hood panels; by defining primary and cross curves simultaneously, curvature-continuous G2 surface patches were achieved across all major body sections. Interior curves were used within UV orientation settings to control surface shape without introducing additional boundary constraints.</p>
+<p class="project-desc">Achieving G2 continuity across the hood, roof, and door panels was a core requirement, enforced by carefully matching tangent direction and curvature magnitude at all shared edges between adjacent patches. Edge Blend operations were applied throughout to eliminate sharp transitions, with individual segment blending used at complex corners where chain blending caused failures. Additional features including bumpers, headlights, door trim lines, window frames, wheel hubs, and axles were modeled beyond the basic requirements.</p>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" mozallowfullscreen="true" src="https://sketchfab.com/models/57b4602522b14c96958c40630878cd04/embed" title="VW Beetle" webkitallowfullscreen="true">
+</iframe>
+<div class="media-label">Interactive 3D Model — Drag to Rotate</div>
+</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">G2</div><div class="metric-label">Surface Continuity Achieved</div></div>
+<div class="metric"><div class="metric-val">129+</div><div class="metric-label">Modeling Operations</div></div>
+<div class="metric"><div class="metric-val">Full</div><div class="metric-label">Solid Body Assembly</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">Siemens NX</span><span class="tag">Surface Modeling</span><span class="tag">Spline Construction</span>
+<span class="tag">G2 Continuity</span><span class="tag">Through Curve Mesh</span><span class="tag">N-Sided Surface</span>
+<span class="tag">Edge Blend</span><span class="tag">Mirror Geometry</span><span class="tag">Sew &amp; Solid Body</span>
+<span class="tag">Datum Planes</span><span class="tag">Fill Surface</span><span class="tag">Wireframe Modeling</span>
+</div>
+</div></details></div></article><article class="project" id="project-5"><div class="project-visual"><img alt="Concept illustration for Tethered UAV Relay System — Better Place Drones" loading="lazy" src="assets/covers/project-5.webp" srcset="assets/covers/project-5-small.webp 600w, assets/covers/project-5.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">05</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Georgia Institute of Technology · VIP Program · Atlanta, GA</p><p class="project-period">VIP Research Program · Jan 2025 – Present</p><h3>Tethered UAV Relay System — Better Place Drones</h3><p>Two payload-mount concepts and tether-system research for an X8 octocopter communication relay.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>Tethered UAV Relay System — Better Place Drones</h4><p class="eyebrow">Georgia Institute of Technology · VIP Program · Atlanta, GA</p>
+<p class="project-desc">
               Contributing to the Tethered Relay Development subteam of the Better Place Drones VIP program, focused on enabling persistent aerial communication relay using a tethered X8 octocopter UAV. The tethered configuration eliminates battery endurance constraints by supplying continuous power via a grounded tether, allowing indefinite hover time for relay operations. Work spans from system-level component procurement research through mechanical design and fabrication of custom payload mounting assemblies.
             </p>
-
-            <p class="project-desc">
+<p class="project-desc">
               Conducted a structured market survey of commercially available tethered power systems to identify viable off-the-shelf solutions for the X8 platform. Evaluated systems across key parameters including converter requirement, input voltage range, continuous output wattage, tether height and cable type, cable weight per unit length, UI/control interface, and unit cost. Systems assessed included the Fotokite T3500-S, Maverick C2J TK3, Volarous V-LINE PRO, ELISTAIR LIGH-T4, Zenith Aero Tech, USAS, Fotokite Sigma, Hoverfly, Mistral Kite, RS3000 Ground Power System, and SkyCoach Drone-Tek — spanning converter topologies from 48VDC/2500W to vehicle-based power systems, and tether lengths from 45m to 400ft. Key selection criteria included compatibility with 48VDC/2500W input requirements, tether height above 400ft (122m), auto-winch capability, and cable weight below 500g for flight budget compliance.
             </p>
-
-            <div>
-              <img src="vip-research.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Tether Kit Research Matrix" />
-              <div class="media-label" style="margin-bottom:2rem;">Tether Kit Procurement Research — Comparative System Analysis Matrix</div>
-            </div>
-
-            <p class="project-desc">
+<div>
+<img alt="Tether Kit Research Matrix" loading="lazy" src="assets/vip-research.jpg"/>
+<div class="media-label">Tether Kit Procurement Research — Comparative System Analysis Matrix</div>
+</div>
+<p class="project-desc">
               Designed and modeled two iterations of a battery and payload mount assembly for the X8 UAV in SolidWorks, sized to house onboard fuel tanks, electronics bays, and structural attachment interfaces. The first configuration is a rectilinear carbon fiber composite enclosure — an open-frame box structure with internal vertical ribs for component compartmentalization, mounted on dual lateral threaded rod rails with nut-and-clamp fastening for positional adjustability along the airframe. Panel geometry was designed for sheet material fabrication with bolted corner extrusions.
             </p>
-
-            <p class="project-desc">
+<p class="project-desc">
               The second configuration is a cantilevered asymmetric mount integrating two cylindrical pressure/fuel tanks — one forward-mounted at an angled orientation and one vertically suspended below the frame — connected via carbon fiber tube struts with threaded rod terminal fittings. The irregular geometry was intentionally designed to offset the center of mass for balance correction relative to the UAV's existing payload distribution. Both designs account for mass budget constraints, structural rigidity under flight loads, and accessibility for field servicing.
             </p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="vip-mount1.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Mount Design 1" />
-                <div class="media-label">Design 1 — Carbon Fiber Box Enclosure with Rail Mount</div>
-              </div>
-              <div>
-                <img src="vip-mount2.jpg" style="width:100%;height:340px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Mount Design 2" />
-                <div class="media-label">Design 2 — Asymmetric Cantilevered Tank Mount Assembly</div>
-              </div>
-            </div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">X8</div><div class="metric-label">UAV Platform</div></div>
-              <div class="metric"><div class="metric-val">11+</div><div class="metric-label">Systems Evaluated</div></div>
-              <div class="metric"><div class="metric-val">2</div><div class="metric-label">Mount Designs</div></div>
-              <div class="metric"><div class="metric-val">48VDC</div><div class="metric-label">Target Power Input</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">UAV Systems</span>
-              <span class="tag">Tethered Drone</span><span class="tag">Payload Mount Design</span>
-              <span class="tag">Carbon Fiber Structure</span><span class="tag">Systems Integration</span>
-              <span class="tag">Procurement Research</span><span class="tag">Mass Budget Analysis</span>
-              <span class="tag">Structural Design</span><span class="tag">VIP Program</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ DRUG DELIVERY DRONE ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">CAD Design Project · 2022</div>
-            <div class="project-header-title">Drug Delivery Drone — Concept & System Design</div>
-            <div class="project-header-sub">Georgia Institute of Technology · Atlanta, GA</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">X-Frame</div>
-                <div class="project-header-metric-label">Architecture</div>
-              </div>
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">Full</div>
-                <div class="project-header-metric-label">Assembly</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Developed a full concept and system design for a real-world application: an autonomous drug delivery drone. The design objective was to produce a complete, manufacturable assembly within a fixed timeline — from individual components through to a final integrated model.
-            <br /><br />
+<div>
+<div>
+<img alt="Mount Design 1" loading="lazy" src="assets/vip-mount1.jpg"/>
+<div class="media-label">Design 1 — Carbon Fiber Box Enclosure with Rail Mount</div>
+</div>
+<div>
+<img alt="Mount Design 2" loading="lazy" src="assets/vip-mount2.jpg"/>
+<div class="media-label">Design 2 — Asymmetric Cantilevered Tank Mount Assembly</div>
+</div>
+</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">X8</div><div class="metric-label">UAV Platform</div></div>
+<div class="metric"><div class="metric-val">11+</div><div class="metric-label">Systems Evaluated</div></div>
+<div class="metric"><div class="metric-val">2</div><div class="metric-label">Mount Designs</div></div>
+<div class="metric"><div class="metric-val">48VDC</div><div class="metric-label">Target Power Input</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">SolidWorks</span><span class="tag">UAV Systems</span>
+<span class="tag">Tethered Drone</span><span class="tag">Payload Mount Design</span>
+<span class="tag">Carbon Fiber Structure</span><span class="tag">Systems Integration</span>
+<span class="tag">Procurement Research</span><span class="tag">Mass Budget Analysis</span>
+<span class="tag">Structural Design</span><span class="tag">VIP Program</span>
+</div>
+</div></details></div></article><article class="project" id="project-6"><div class="project-visual"><img alt="Concept illustration for Drug Delivery Drone — Concept &amp; System Design" loading="lazy" src="assets/covers/project-6.webp" srcset="assets/covers/project-6-small.webp 600w, assets/covers/project-6.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">06</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Georgia Institute of Technology · Atlanta, GA</p><p class="project-period">CAD Design Project · 2022</p><h3>Drug Delivery Drone — Concept &amp; System Design</h3><p>A fully constrained SolidWorks assembly integrating propeller guards, electronics, payload storage, and landing gear.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>Drug Delivery Drone — Concept &amp; System Design</h4><p class="eyebrow">Georgia Institute of Technology · Atlanta, GA</p>
+<p class="project-desc">Developed a full concept and system design for a real-world application: an autonomous drug delivery drone. The design objective was to produce a complete, manufacturable assembly within a fixed timeline — from individual components through to a final integrated model.
+            <br/><br/>
             The drone follows a symmetric X-frame layout with four arms extending from a central hub. Each arm terminates in a propeller guard modeled using swept and lofted features in SolidWorks to produce the curved guard geometry. The propellers themselves were modeled as separate sub-assemblies with individual blade geometry defined using surface modeling tools.
-            <br /><br />
+            <br/><br/>
             The central body houses a dedicated electronics bay with rectangular cutouts for battery and control board mounting, modeled using extruded cuts and shell features to minimize weight while maintaining structural integrity. A payload compartment hangs below the main frame, designed to securely carry a medical package — built using SolidWorks weldments and sheet metal features. Landing gear legs extend from the lower frame, modeled as structural members with filleted joints.
-            <br /><br />
+            <br/><br/>
             All parts were designed individually and brought together using SolidWorks assembly mates — coincident, concentric, and distance mates — to fully constrain the model. Creo was used for advanced modeling and final presentation visuals.</p>
-
-            <div>
-              <img src="Drone-full.jpg" style="width:100%;height:460px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Drone Full Assembly" />
-              <div class="media-label" style="margin-bottom:2rem;">Full Assembly — Drug Delivery Drone</div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="Assembly-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Assembly Drawing" />
-                <div class="media-label">Assembly Drawing</div>
-              </div>
-              <div>
-                <img src="Body-drawing.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Body Drawing" />
-                <div class="media-label">Body Drawing</div>
-              </div>
-            </div>
-
-            <div>
-              <img src="Propeller-motor-assembly.jpg" style="width:100%;height:360px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="Propeller Motor Assembly" />
-              <div class="media-label" style="margin-bottom:2rem;">Propeller & Motor Assembly Detail</div>
-            </div>
-
-            <div style="margin-bottom:2rem;">
-              <iframe title="Drug Delivery Drone" width="100%" height="500"
-                src="https://sketchfab.com/models/3fc30c2e43414146b74a764c946f3767/embed"
-                frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                style="border:1px solid #1e2d3d;">
-              </iframe>
-              <div class="media-label" style="margin-bottom:1rem;">Interactive 3D Model — Drag to Rotate</div>
-            </div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">X-Frame</div><div class="metric-label">Drone Architecture</div></div>
-              <div class="metric"><div class="metric-val">Full</div><div class="metric-label">Assembly Constrained</div></div>
-              <div class="metric"><div class="metric-val">Multi</div><div class="metric-label">Sub-Assemblies</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">Creo</span><span class="tag">Loft & Sweep</span>
-              <span class="tag">Surface Modeling</span><span class="tag">Sheet Metal</span><span class="tag">Weldments</span>
-              <span class="tag">Assembly Mates</span><span class="tag">Structural Design</span><span class="tag">UAV Design</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ ME 2110 ═══ -->
-      <div class="project-item">
-        <div class="project-header" onclick="toggleProject(this)">
-          <div class="project-header-left">
-            <div class="project-header-tag">Creative Decisions and Design · Jan–Apr 2024</div>
-            <div class="project-header-title">ME 2110 — Programmable Robot Design & Build</div>
-            <div class="project-header-sub">Georgia Institute of Technology · Atlanta, GA</div>
-          </div>
-          <div class="project-header-right">
-            <div class="project-header-metrics">
-              <div class="project-header-metric">
-                <div class="project-header-metric-val">28s</div>
-                <div class="project-header-metric-label">Time Saved</div>
-              </div>
-            </div>
-            <div class="project-arrow">▼</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-body-inner">
-            <p class="project-desc">Designed and built a fully programmable robot for a competitive design challenge, integrating DC motors, pulleys, pneumatic pistons, solenoids, encoders, and sensors into a cohesive electromechanical system. The robot was programmed in C++ using Arduino to identify and manipulate objects autonomously, with AC adapters and a pressure tank powering the actuation system. Iterative testing and redesign of the control logic and mechanical layout reduced task completion time by 28 seconds compared to the initial prototype.</p>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-              <div>
-                <img src="me2110-cad.jpg" style="width:100%;height:300px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="ME 2110 CAD Model" />
-                <div class="media-label">SolidWorks CAD — Robot Assembly to Scale</div>
-              </div>
-              <div>
-                <img src="me2110-model.jpg" style="width:100%;height:300px;object-fit:contain;background:#0d1117;border:1px solid #1e2d3d;" alt="ME 2110 Physical Robot" />
-                <div class="media-label">Physical Build — Final Competition Robot</div>
-              </div>
-            </div>
-
-            <p class="project-desc">A detailed 3D CAD model of the robot was produced in SolidWorks, with all components drafted to scale to create a precise digital replica used for presentation and documentation. The model captured the full mechanical layout including motor mounts, pneumatic routing, and sensor placement — serving as both a design validation tool and a communication artifact for the team.</p>
-
-            <div style="position:relative;padding-bottom:56%;height:0;overflow:hidden;border:1px solid #1e2d3d;margin-bottom:0.5rem;">
-              <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/XqVX68p_Bk4" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="media-label" style="margin-bottom:2rem;">Competition Run — Live Robot Demo</div>
-
-            <div class="project-metrics">
-              <div class="metric"><div class="metric-val">28s</div><div class="metric-label">Completion Time Reduced</div></div>
-              <div class="metric"><div class="metric-val">C++</div><div class="metric-label">Arduino Programming</div></div>
-              <div class="metric"><div class="metric-val">Full</div><div class="metric-label">CAD to Scale</div></div>
-            </div>
-
-            <div class="project-tags">
-              <span class="tag">SolidWorks</span><span class="tag">Arduino</span><span class="tag">C++</span>
-              <span class="tag">DC Motors</span><span class="tag">Pneumatic Pistons</span><span class="tag">Solenoids</span>
-              <span class="tag">Encoders & Sensors</span><span class="tag">Electromechanical Design</span><span class="tag">Iterative Prototyping</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div><!-- END projects-list -->
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-header">
-      <span class="section-num">03 /</span>
-      <h2 class="section-title">Skills</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid reveal">
-      <div class="skill-group">
-        <div class="skill-group-title">CAD / Simulation</div>
-        <div class="skill-list">
-          <div class="skill-item">SolidWorks (Advanced)</div>
-          <div class="skill-item">Siemens NX</div>
-          <div class="skill-item">AutoCAD</div>
-          <div class="skill-item">ANSYS (FEA)</div>
-          <div class="skill-item">CFD Analysis</div>
-          <div class="skill-item">GD&T · BOMs · Engineering Drawings</div>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Programming</div>
-        <div class="skill-list">
-          <div class="skill-item">Python</div>
-          <div class="skill-item">MATLAB</div>
-          <div class="skill-item">C++ / Arduino</div>
-          <div class="skill-item">FANUC Teach Pendant</div>
-          <div class="skill-item">ROBOGUIDE Simulation</div>
-          <div class="skill-item">SAS</div>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Lab &amp; Manufacturing</div>
-        <div class="skill-list">
-          <div class="skill-item">Metallurgical Testing</div>
-          <div class="skill-item">3D Printing / Additive Mfg.</div>
-          <div class="skill-item">CNC Machining</div>
-          <div class="skill-item">Laser Cutting</div>
-          <div class="skill-item">Molding &amp; Casting</div>
-          <div class="skill-item">Thermal Spray (HVOF)</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header">
-      <span class="section-num">04 /</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-wrapper reveal">
-      <div class="contact-title">Let's work together<span class="cursor"></span></div>
-      <div class="contact-sub">Open to full-time mechanical engineering roles · May 2026</div>
-      <div class="contact-links">
-        <a href="mailto:dislam7@gatech.edu" class="contact-link"><span>✉</span> dislam7@gatech.edu</a>
-        <a href="tel:6784625448" class="contact-link"><span>☎</span> 678-462-5448</a>
-        <a href="https://linkedin.com/in/daanishislam" target="_blank" class="contact-link"><span>in</span> linkedin.com/in/daanishislam</a>
-        <a href="https://github.com/daanish-i7" target="_blank" class="contact-link"><span>⌥</span> github.com/daanish-i7</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-text">© 2026 Daanish Islam · daanishislam.com</div>
-    <div class="footer-text">Built with HTML · CSS · Deployed on GitHub Pages</div>
-  </footer>
-
-  <script>
-    function toggleProject(header) {
-      const body = header.nextElementSibling;
-      const isOpen = header.classList.contains('open');
-
-      // Close all
-      document.querySelectorAll('.project-header.open').forEach(h => {
-        h.classList.remove('open');
-        h.nextElementSibling.classList.remove('open');
-      });
-
-      // Open clicked if it was closed
-      if (!isOpen) {
-        header.classList.add('open');
-        body.classList.add('open');
-      }
-    }
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 100);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.01 });
-    reveals.forEach(el => observer.observe(el));
-
-    const heroTag = document.querySelector('.hero-tag');
-    heroTag.style.opacity = '0';
-    setTimeout(() => { heroTag.style.opacity = '1'; heroTag.style.transition = 'opacity 0.5s'; }, 200);
-  </script>
-</body>
-</html>
+<div>
+<img alt="Drone Full Assembly" loading="lazy" src="assets/Drone-full.jpg"/>
+<div class="media-label">Full Assembly — Drug Delivery Drone</div>
+</div>
+<div>
+<div>
+<img alt="Drug delivery drone — exploded assembly drawing" loading="lazy" src="assets/drone-assembly-drawing.jpg"/>
+<div class="media-label">Assembly Drawing</div>
+</div>
+<div>
+<img alt="Body Drawing" loading="lazy" src="assets/Body-drawing.jpg"/>
+<div class="media-label">Body Drawing</div>
+</div>
+</div>
+<div>
+<img alt="Propeller Motor Assembly" loading="lazy" src="assets/Propeller-motor-assembly.jpg"/>
+<div class="media-label">Propeller &amp; Motor Assembly Detail</div>
+</div>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" mozallowfullscreen="true" src="https://sketchfab.com/models/3fc30c2e43414146b74a764c946f3767/embed" title="Drug Delivery Drone" webkitallowfullscreen="true">
+</iframe>
+<div class="media-label">Interactive 3D Model — Drag to Rotate</div>
+</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">X-Frame</div><div class="metric-label">Drone Architecture</div></div>
+<div class="metric"><div class="metric-val">Full</div><div class="metric-label">Assembly Constrained</div></div>
+<div class="metric"><div class="metric-val">Multi</div><div class="metric-label">Sub-Assemblies</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">SolidWorks</span><span class="tag">Creo</span><span class="tag">Loft &amp; Sweep</span>
+<span class="tag">Surface Modeling</span><span class="tag">Sheet Metal</span><span class="tag">Weldments</span>
+<span class="tag">Assembly Mates</span><span class="tag">Structural Design</span><span class="tag">UAV Design</span>
+</div>
+</div></details></div></article><article class="project" id="project-7"><div class="project-visual"><img alt="Concept illustration for ME 2110 — Programmable Robot Design &amp; Build" loading="lazy" src="assets/covers/project-7.webp" srcset="assets/covers/project-7-small.webp 600w, assets/covers/project-7.webp 1536w" sizes="(max-width:700px) 90vw, 45vw"/><span class="index">07</span><span class="cover-label">PROJECT CONCEPT</span></div><div class="project-copy"><p class="eyebrow">Georgia Institute of Technology · Atlanta, GA</p><p class="project-period">Creative Decisions and Design · Jan–Apr 2024</p><h3>ME 2110 — Programmable Robot Design &amp; Build</h3><p>An Arduino-controlled electromechanical robot. Iterative redesign reduced task completion time by 28 seconds.</p><details><summary>Open project <span>↗</span></summary><div class="case-study"><h4>ME 2110 — Programmable Robot Design &amp; Build</h4><p class="eyebrow">Georgia Institute of Technology · Atlanta, GA</p>
+<p class="project-desc">Designed and built a fully programmable robot for a competitive design challenge, integrating DC motors, pulleys, pneumatic pistons, solenoids, encoders, and sensors into a cohesive electromechanical system. The robot was programmed in C++ using Arduino to identify and manipulate objects autonomously, with AC adapters and a pressure tank powering the actuation system. Iterative testing and redesign of the control logic and mechanical layout reduced task completion time by 28 seconds compared to the initial prototype.</p>
+<div>
+<div>
+<img alt="ME 2110 CAD Model" loading="lazy" src="assets/me2110-cad.jpg"/>
+<div class="media-label">SolidWorks CAD — Robot Assembly to Scale</div>
+</div>
+<div>
+<img alt="ME 2110 Physical Robot" loading="lazy" src="assets/me2110-model.jpg"/>
+<div class="media-label">Physical Build — Final Competition Robot</div>
+</div>
+</div>
+<p class="project-desc">A detailed 3D CAD model of the robot was produced in SolidWorks, with all components drafted to scale to create a precise digital replica used for presentation and documentation. The model captured the full mechanical layout including motor mounts, pneumatic routing, and sensor placement — serving as both a design validation tool and a communication artifact for the team.</p>
+<div>
+<iframe allowfullscreen="" class="embed" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/XqVX68p_Bk4" title="ME 2110 — Programmable Robot Design &amp; Build demonstration"></iframe>
+</div>
+<div class="media-label">Competition Run — Live Robot Demo</div>
+<div class="project-metrics">
+<div class="metric"><div class="metric-val">28s</div><div class="metric-label">Completion Time Reduced</div></div>
+<div class="metric"><div class="metric-val">C++</div><div class="metric-label">Arduino Programming</div></div>
+<div class="metric"><div class="metric-val">Full</div><div class="metric-label">CAD to Scale</div></div>
+</div>
+<div class="project-tags">
+<span class="tag">SolidWorks</span><span class="tag">Arduino</span><span class="tag">C++</span>
+<span class="tag">DC Motors</span><span class="tag">Pneumatic Pistons</span><span class="tag">Solenoids</span>
+<span class="tag">Encoders &amp; Sensors</span><span class="tag">Electromechanical Design</span><span class="tag">Iterative Prototyping</span>
+</div>
+</div></details></div></article></div></section>
+<section class="about-explore" id="about"><div class="about-intro"><p class="eyebrow">02 / BEHIND THE WORK</p><h2>Curiosity.<br/>Rigor.<br/><em>Hands-on.</em></h2><p>Mechanical engineer. Georgia Tech graduate student. Always interested in how things move—and how to make them work better.</p><a class="text-link" href="assets/Daanish_Islam_Resume.pdf" rel="noopener" target="_blank">View resume ↗</a></div><div class="about-panels"><details class="about-panel" open=""><summary><span><small>01</small> Background</span><span class="plus">+</span></summary><div class="about-panel-body"><p class="lead">I connect mechanical design with controls, fabrication, and system integration.</p><p>My work spans industrial robot programming, thermal-spray fixtures, research prototypes, and UAV hardware. I enjoy taking a design through the full cycle: modeling, analysis, fabrication, testing, and iteration.</p><div class="experience-row"><span>Aug 2026 — Present</span><h3>Graduate Teaching Assistant</h3><p>Woodruff School of Mechanical Engineering · Georgia Tech<br/>ME 3057 laboratory instruction, equipment operation, and technical report feedback.</p></div><div class="experience-row"><span>May — Aug 2025</span><h3>Mechanical Engineering Intern</h3><p>Redwood Materials · Reno, NV<br/>Mechanical assemblies, FANUC programming, HVOF coating, and metallurgical testing.</p></div><div class="experience-row"><span>Jan — Apr 2025</span><h3>Research Assistant</h3><p>Water–Energy Research Lab · Georgia Tech<br/>Mass exchanger design, sensor integration, and experimental testing.</p></div><div class="experience-row"><span>May — Jul 2024</span><h3>Manufacturing Engineering Intern</h3><p>Bangladesh Steel Re-Rolling Mills<br/>Root-cause analysis, hydraulic and pneumatic systems, and replacement-component design.</p></div></div></details><details class="about-panel"><summary><span><small>02</small> Education</span><span class="plus">+</span></summary><div class="about-panel-body"><div class="degree"><p class="eyebrow">AUG 2026 — DEC 2027 · EXPECTED</p><h3>Master of Science<br/>Mechanical Engineering</h3><p>Georgia Institute of Technology</p><p>Focus: controls, robotics, automation, and design.</p><p class="muted">Coursework: Linear Control Systems; Advanced Control System Design &amp; Implementation; Mechatronics; Engineering Design.</p></div><div class="degree"><p class="eyebrow">AUG 2022 — MAY 2026</p><h3>Bachelor of Science<br/>Mechanical Engineering</h3><p>Georgia Institute of Technology</p><p>GPA: 3.66 · Highest Honour</p></div></div></details><details class="about-panel"><summary><span><small>03</small> Resume</span><span class="plus">+</span></summary><div class="about-panel-body"><p class="lead">The full picture.</p><p>Experience, education, technical skills, and selected projects in one document.</p><div class="resume-actions"><a class="button" href="assets/Daanish_Islam_Resume.pdf" rel="noopener" target="_blank">View PDF <span>↗</span></a><a class="button" download="" href="assets/Daanish_Islam_Resume.pdf">Download resume <span>↓</span></a></div></div></details></div></section>
+<section class="skills" id="skills"><p class="eyebrow">03 / TOOLKIT</p><div class="skills-grid"><div><h3>Design &amp; simulation</h3><p>SolidWorks · Siemens NX · AutoCAD<br/>ANSYS / FEA · CFD<br/>GD&amp;T · BOMs · Engineering drawings</p></div><div><h3>Controls &amp; programming</h3><p>Python · MATLAB · C++ / Arduino<br/>FANUC teach pendant · ROBOGUIDE<br/>Sensors &amp; data acquisition</p></div><div><h3>Build &amp; test</h3><p>3D printing · CNC machining · Laser cutting<br/>Molding &amp; casting · HVOF thermal spray<br/>Metallurgical testing</p></div></div></section>
+<section class="contact" id="contact"><p class="eyebrow">04 / LET'S CONNECT</p><h2>Have something<br/>in <em>motion?</em></h2><a class="contact-email" href="mailto:dislam7@gatech.edu">dislam7@gatech.edu <span>↗</span></a><div class="socials"><a href="https://linkedin.com/in/daanishislam" rel="noopener" target="_blank">LinkedIn ↗</a><a href="https://github.com/daanish-i7" rel="noopener" target="_blank">GitHub ↗</a></div></section></main><footer><span>© 2026 Daanish Islam</span><span>Mechanical engineering. In practice.</span><a href="#">Back to top ↑</a></footer><script src="story-math.js"></script><script src="app.js"></script><script src="mobile-nav.js"></script></body></html>
